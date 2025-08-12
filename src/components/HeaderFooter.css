@@ -1,20 +1,21 @@
 
-.header {
+.logo {
+  color: #e50914;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.couching-header {
   position: absolute;
   top: 0;
   width: 100%;
   padding: 24px 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
   z-index: 10;
   background-color: black;
-}
-
-.logo {
-  color: #e50914;
-  font-size: 32px;
-  font-weight: 700;
+  border-bottom: 1px solid #333;
 }
 
 .signin-btn {
@@ -27,7 +28,107 @@
   cursor: pointer;
 }
 
+/* Public Header styles */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 15px;
+  border-radius: 4px;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  z-index: 100;
+  min-width: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
 
+.login-input {
+  padding: 12px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #333;
+  color: white;
+  font-size: 14px;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #e50914;
+}
+
+.login-btn {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: #f40612;
+}
+
+.login-btn:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  background: transparent;
+  color: #aaa;
+  border: none;
+  padding: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  color: white;
+}
+
+.error-message {
+  color: #e50914;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* Private Header styles */
+.logout-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid #e50914;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.logout-btn:hover {
+  background: #e50914;
+}
+
+.nav-link {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Footer styles */
 .couching-footer {
   background-color: rgba(0, 0, 0, 0.8);
   color: #757575;

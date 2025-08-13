@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 
 export const metadata: Metadata = {
   title: 'CouchingTV',
-  description: 'Watch your favorite series and movies on CouchingTV',
+  description: 'Watch your favorite youtube videos on CouchingTV',
   icons: [
       { url: '/favicon.ico' },
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },

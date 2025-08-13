@@ -5,6 +5,12 @@
   font-weight: 700;
 }
 
+.logo a {
+  color: #e50914;
+  text-decoration: none;
+  list-style: none;
+}
+
 .couching-header {
   position: absolute;
   top: 0;
@@ -43,6 +49,7 @@
   min-width: 250px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
 }
+
 
 .login-input {
   padding: 12px;

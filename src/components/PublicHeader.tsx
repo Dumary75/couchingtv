@@ -43,7 +43,7 @@ export default function PublicHeader() {
 
   return (
     <header className="couching-header">
-      <div className="logo">COUCHING TV</div>
+      <div className="logo"><a href='#'>COUCHING TV</a></div>
 
       {showLogin ? (
         <form onSubmit={handleLogin} className="login-form">

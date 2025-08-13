@@ -27,7 +27,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('./Example.png');
+  background-image: url('./Main_BG.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -40,6 +40,7 @@ body {
   position: relative;
   z-index: 1;
   text-align: center;
+  font-weight: 500;
   padding: 120px 20px 40px;
   max-width: 800px;
   margin: 0 auto;

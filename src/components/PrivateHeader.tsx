@@ -11,7 +11,7 @@ export default function PrivateHeader() {
 
   return (
     <header className="couching-header">
-      <div className="logo">COUCHING TV</div>
+      <div className="logo"><a href='#'>COUCHING TV</a></div>
       <nav>
         <a href="#" className="nav-link">Suchen</a>
         <a href="#" className="nav-link">Meine Liste</a>

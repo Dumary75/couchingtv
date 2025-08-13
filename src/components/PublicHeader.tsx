@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../lib/firebase';
 
 export default function PublicHeader() {
@@ -16,6 +16,20 @@ export default function PublicHeader() {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   };
+
+  const handlePasswordReset = async (email: string) => {
+  if (!validateEmail(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  try {
+    await sendPasswordResetEmail(auth, email);
+    alert('E-Mail zum Zurücksetzen des Passworts wurde gesendet!');
+  } catch (error) {
+    console.error('Fehler beim Senden der E-Mail:', error);
+    alert('Fehler: ' + (error as any).message);
+  }
+};
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -71,6 +85,9 @@ export default function PublicHeader() {
             className="cancel-btn"
           >
             Cancel
+          </button>
+          <button className='forgot-password-btn' onClick={() => handlePasswordReset(email)}>
+            Forgot Password?
           </button>
         </form>
       ) : (

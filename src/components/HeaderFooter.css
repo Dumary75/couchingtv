@@ -103,6 +103,22 @@
   margin: 0;
 }
 
+/* Passwort-Vergessen-Button */
+.forgot-password-btn {
+  background: none;
+  border: none;
+  color: #b3b3b3; 
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: color 0.2s ease;
+}
+
+.forgot-password-btn:hover {
+  color: #fff;
+}
+
 /* Private Header styles */
 .logout-btn {
   background: transparent;

@@ -1,0 +1,202 @@
+
+
+
+/* === Signup-Seiten (gemeinsam) === */
+.signup-page, .plan-page, .profile-page, .welcome-page {
+  max-width: 600px;
+  margin: 15rem auto 15rem;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+}
+
+.signup-page h2, .plan-page h2, .profile-page h2, .welcome-page h2 {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* === Passwort-Seite === */
+.signup-page input {
+  width: 100%;
+  padding: 15px;
+  background: #333;
+  border: 1px solid #666;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.signup-page button {
+  width: 100%;
+  padding: 15px;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* === Plan-Seite === */
+.plan-card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.plan-card h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.plan-card p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.plan-card button {
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* === Profil-Seite === */
+.profile-page input {
+  width: 100%;
+  padding: 15px;
+  margin: 15px 0;
+  background: #333;
+  border: 1px solid #666;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+}
+
+.profile-page .create-account-btn {
+  width: 100%;
+  padding: 15px;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.profile-page .create-account-btn:disabled {
+  background: #666;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #e50914;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+/* === Willkommensseite === */
+.welcome-page {
+  text-align: center;
+}
+
+.welcome-page h1 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.welcome-page p {
+  color: #ccc;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.welcome-page strong {
+  color: #fff;
+}
+.main-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-weight: 500;
+  padding: 120px 20px 40px;
+  max-width: 800px;
+  margin: 5rem auto;
+}
+
+.main-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 1.75rem;
+  color: #ddd;
+  margin-bottom: 16px;
+}
+
+.cta-text {
+  font-size: 1.2rem;
+  color: #ddd;
+  margin-bottom: 30px;
+}
+
+/* E-Mail Formular */
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  .email-form {
+    flex-direction: row;
+  }
+}
+
+.email-input {
+  flex: 1;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
+  font-weight: 400;
+  outline: none;
+}
+
+.email-input::placeholder {
+  color: #777;
+}
+
+.start-btn {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.start-btn:hover {
+  background-color: #f40612;
+} 

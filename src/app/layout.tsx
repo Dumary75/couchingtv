@@ -1,6 +1,8 @@
 
+import './globals.css';
 import '../components/HeaderFooter.css';
 import type { Metadata } from 'next';
+import { SignupProvider } from '../context/SignupContext';
 import AuthHeader from '@/components/AuthHeader';
 import Footer from '../components/Footer';
 
@@ -25,9 +27,11 @@ export default function RootLayout({
   return (
     <html lang="eng">
       <body>
-        <AuthHeader />
-        <main>{children}</main>
-        <Footer />
+        <SignupProvider>
+            <AuthHeader />
+              <main>{children}</main>
+            <Footer />
+        </SignupProvider>
       </body>
     </html>
   );

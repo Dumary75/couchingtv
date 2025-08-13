@@ -31,7 +31,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(0.5);
+  filter: brightness(0.2);
   z-index: -1;
 }
 
@@ -43,7 +43,7 @@ body {
   font-weight: 500;
   padding: 120px 20px 40px;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 5rem auto;
 }
 
 .main-content h1 {

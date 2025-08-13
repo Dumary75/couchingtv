@@ -6,6 +6,7 @@ import { useAuth } from '../hooks/useAuth';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSignup } from '../context/SignupContext';
+import FAQSection from '@/components/FAQSection';
 
 export default function Home() {
   const { user, loading } = useAuth();
@@ -15,6 +16,17 @@ export default function Home() {
 
     const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const validateEmail = (email: string) => {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+  };
+
+      if (!validateEmail(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
     dispatch({ type: 'SET_EMAIL', payload: email });
     router.push('/signup/password');
   };
@@ -40,6 +52,7 @@ export default function Home() {
                     <button type='submit' className="start-btn">Get Started</button>
                   </form>
                 </main>
+                <FAQSection />
             </div>
   ) 
 }

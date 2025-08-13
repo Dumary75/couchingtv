@@ -3,10 +3,6 @@
 export default function Footer() {
   return (
     <footer className="couching-footer">
-      <p>
-        Questions? Call <a href="tel:1800000000" className="footer-phone-link">1-800-COUCHING</a>
-      </p>
-
       <div className="footer-links">
         <div className="footer-column">
           <a href="#">FAQ</a>

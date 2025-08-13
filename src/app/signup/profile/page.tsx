@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSignup } from '../../../context/SignupContext';
-import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification, signOut } from 'firebase/auth';
 import { auth } from '../../../lib/firebase';
 
 export default function ProfilePage() {
@@ -33,6 +33,7 @@ export default function ProfilePage() {
 
       // 2. Bestätigungs-E-Mail senden
       await sendEmailVerification(userCredential.user);
+      await signOut(auth);
 
       // 3. Profilnamen speichern
       dispatch({ type: 'SET_PROFILE', payload: name });
@@ -40,7 +41,7 @@ export default function ProfilePage() {
       // 4. Weiter zur Willkommensseite
       router.push('/signup/welcome');
     } catch (err: any) {
-      setError(err.message || 'Fehler beim Erstellen des Accounts');
+      setError(err.message || 'Error by creating account');
     } finally {
       setLoading(false);
     }
@@ -48,15 +49,15 @@ export default function ProfilePage() {
 
   return (
     <div className="profile-page">
-      <h2>Profil erstellen</h2>
+      <h2>Create Profil</h2>
       <p>E-Mail: {state.email}</p>
-      <p>Plan: Kostenlos</p>
+      <p>Plan: Free</p>
 
       <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder="Name für das Profil"
+        placeholder="Name for the profile"
         required
       />
 
@@ -67,7 +68,7 @@ export default function ProfilePage() {
         disabled={loading}
         className="create-account-btn"
       >
-        {loading ? 'Erstelle Account...' : 'Account erstellen'}
+        {loading ? 'Creating Account...' : 'Account create'}
       </button>
     </div>
   );

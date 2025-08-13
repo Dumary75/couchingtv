@@ -12,12 +12,18 @@ export default function PasswordPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (password.length < 6) {
+      alert('The password must be at least 6 characters long.');
+      return;
+    }
+
     dispatch({ type: 'SET_PASSWORD', payload: password });
     router.push('/signup/plan');
   };
 
   useEffect(() => {
-    document.body.style.backgroundColor = '#442e2eff'; 
+    document.body.style.backgroundColor = '#2b2929ff'; 
   }, []);
 
   return (

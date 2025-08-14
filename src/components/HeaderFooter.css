@@ -120,6 +120,11 @@
 }
 
 /* Private Header styles */
+
+.couching-header.logged-in {
+  position: fixed;
+}
+
 .logout-btn {
   background: transparent;
   color: white;
@@ -135,6 +140,13 @@
   background: #e50914;
 }
 
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Abstand zwischen Elementen */
+  flex-wrap: wrap; /* Optional: Bei wenig Platz umbrechen */
+}
+
 .nav-link {
   color: #e5e5e5;
   text-decoration: none;
@@ -146,6 +158,24 @@
 }
 
 .nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.search-btn {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: color 0.3s;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-btn:hover {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.1);
 }

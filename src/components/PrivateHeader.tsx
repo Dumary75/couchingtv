@@ -3,17 +3,41 @@
 
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function PrivateHeader() {
+const [showSearch, setShowSearch] = useState(false);
+const [query, setQuery] = useState('');
+const router = useRouter();
+
+const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+   setQuery(e.target.value);
+  // router.push(`/search?q=${encodeURIComponent(query)}`); <-- Suchleiste aktevieren?
+};
+
+
   const handleLogout = () => {
     signOut(auth);
   };
 
-  return (
-    <header className="couching-header">
+  return ( 
+    <header className="couching-header logged-in">
       <div className="logo"><a href='/'>COUCHING TV</a></div>
-      <nav>
-        <a href="#" className="nav-link">Search</a>
+      <nav className="main-nav">
+
+        {showSearch ? 
+            <input
+              type="text"
+              value={query}
+              onChange={handleSearch}
+              placeholder="Search..."
+              className="search-input"
+            /> : 
+          <button onClick={() => setShowSearch(true)} className="search-btn">
+            Search 
+          </button>}
+
         <a href="#" className="nav-link">My List</a>
         <a href="#" className="nav-link">Profil</a>
         <button onClick={handleLogout} className="logout-btn">

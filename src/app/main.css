@@ -118,7 +118,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
-  width: 100%;
+  width: 80%;
   margin: 10rem auto;
   padding: 0 20px;
 }
@@ -159,6 +159,12 @@ body {
   width: 100%;
   height: 100%;
   background-color: #f40612;
+}
+
+h2{
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 /* FAQ Section */

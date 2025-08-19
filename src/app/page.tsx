@@ -49,9 +49,8 @@ export default function Home() {
 return (
   <div className="couching-container">
     {user ? (
-      // User-Fall – eigenes Main-Layout
       <>
-        <h1>Entdecke deine Lieblingsvideos</h1>
+       <h2>Trending Videos</h2>
         <div className="video-grid">
           {videos.map(video => (
             <div key={video.id} className="video-card">

@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
           part: 'snippet',
           q: query,
           type: 'video',
-          maxResults: '24',
+          maxResults: '16',
           key: process.env.YOUTUBE_API_KEY!,
         })
     );

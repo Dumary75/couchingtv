@@ -113,18 +113,17 @@ body {
 
 /* Video Section first rendering */
 .video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  width: 80%;
-  margin: 5rem auto 10rem;
+  display: flex;
+  gap: 4rem;
+  width: 90%;
+  margin: 2rem auto 13rem;
   padding: 0 20px;
 }
 
-h2{
-  font-size: 24px;
+h1{
+
   color: #fff;
-  margin: 10rem 10rem 0rem;
+  margin: 10rem 5rem 3rem;
 }
 
 .video-card {
@@ -133,11 +132,13 @@ h2{
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
+  transform: scale(1.2);
 }
 
 .video-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.5);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
 
 .video-card img {
@@ -146,13 +147,44 @@ h2{
   border-bottom: 1px solid #333;
 }
 
-.video-card h3 {
-  font-size: 14px;
-  color: #e5e5e5;
-  margin: 10px;
-  line-height: 1.4;
-  overflow: hidden;
+.video-card p {
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
 }
+
+/* Video player */
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.video-overlay iframe {
+  width: 80%;
+  height: 80%;
+  border: none;
+  border-radius: 8px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
 
 /* FAQ Section */
 .faq-section {

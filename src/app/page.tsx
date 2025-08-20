@@ -14,6 +14,7 @@ export default function Home() {
   const router = useRouter();
   const { dispatch } = useSignup();
   const [email, setEmail] = useState('');
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
 
 
@@ -34,25 +35,49 @@ export default function Home() {
     router.push('/signup/password');
   };
 
+
+
   return (
     <div className="couching-container">
       {user ? (
         <>
-          {/* {categories.map(({ category, videos }) => (
-            <section key={category}>
-              <h2>{category}</h2>
-              <div className="video-grid">
-                {videos.map((video) => (
-                  <div key={video.id} className="video-card">
-                    <img src={video.thumbnail} alt={video.title} />
-                    <h3>{video.title}</h3>
-                  </div>
+            <div>
+                {videoList.map((category) => (
+                  <section key={category.category}>
+                    <h1>{category.category}</h1>
+                      <div className='video-grid'>
+                          {category.videos.map((video) => (
+                            <div
+                              key={video.id}
+                              className='video-card' 
+                              onClick={() => setActiveVideo(video.id)}
+                            >
+                                    <div>
+                                      <img
+                                        src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                                        alt={video.title}
+                                      />
+                                    </div>
+                                    <p>{video.title}</p>
+                                  </div>
+                  ))}
+                        </div>
+                  </section>
                 ))}
-              </div> 
-            </section>  
-          ))} */}
+          </div>
 
-          
+          {activeVideo && (
+            <div className="video-overlay" onClick={() => setActiveVideo(null)}>
+              <button className="close-btn" onClick={() => setActiveVideo(null)}>✕</button>
+              <iframe
+                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1`}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            )}
+
         </>
       ) : (
         <>

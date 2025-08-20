@@ -3,52 +3,17 @@
 import './main.css'; 
 
 import { useAuth } from '../hooks/useAuth';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSignup } from '../context/SignupContext';
 import FAQSection from '@/components/FAQSection';
+import { videoList } from './videoList';
 
 export default function Home() {
-  const [categories, setCategories] = useState<Array<{ category: string; videos: any[] }>>([]);
-  const [loading, setLoading] = useState(true);
   const { user } = useAuth();
   const router = useRouter();
   const { dispatch } = useSignup();
   const [email, setEmail] = useState('');
-
-  const categoryQueries = [
-    { name: 'Trending', query: 'trending' },
-    { name: 'Music', query: 'music' },
-    { name: 'Gaming', query: 'gaming' },
-    { name: 'Sports', query: 'sports' },
-  ];
-
-
-  // Fetch trending videos with categorys
-  useEffect(() => {
-    const fetchAllCategories = async () => {
-      try {
-        const fetchPromises = categoryQueries.map(async ({ name, query }) => {
-          const res = await fetch(`/api/youtube/mainpage?searchitem=${encodeURIComponent(query)}`);
-          const data = await res.json();
-
-          return {
-            category: name,
-            videos: data.videos || [],
-          };
-        });
-
-        const results = await Promise.all(fetchPromises);
-        setCategories(results);
-      } catch (err) {
-        console.error('Failed to fetch categories:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchAllCategories();
-  }, []);
 
 
 
@@ -69,13 +34,11 @@ export default function Home() {
     router.push('/signup/password');
   };
 
-  if (loading) return <div className="main-content">Looking for content.....</div>;
-
   return (
     <div className="couching-container">
       {user ? (
         <>
-          {categories.map(({ category, videos }) => (
+          {/* {categories.map(({ category, videos }) => (
             <section key={category}>
               <h2>{category}</h2>
               <div className="video-grid">
@@ -87,7 +50,9 @@ export default function Home() {
                 ))}
               </div> 
             </section>  
-          ))}
+          ))} */}
+
+          
         </>
       ) : (
         <>

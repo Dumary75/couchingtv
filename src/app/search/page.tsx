@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { useAuth } from '../../hooks/useAuth';
 
 
 
 export default function SearchPage() {
+const { loading } = useAuth();
 
 interface Video {
   id: string;
@@ -38,6 +40,10 @@ useEffect(() => {
   fetchSearchResults();
 }, []);
 
+
+    if (loading) {
+      return <main className='main-content'><p>Loading...</p></main>;
+    }
 
 
   return (

@@ -1,5 +1,22 @@
 
 
+/* HeaderFooter.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* nimmt den verfügbaren Platz zwischen Header und Footer ein */
+}
+
 
 /* === Signup-Seiten (gemeinsam) === */
 .signup-page, .plan-page, .profile-page, .welcome-page {

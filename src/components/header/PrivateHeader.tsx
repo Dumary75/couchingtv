@@ -32,7 +32,7 @@ const startSearch = () => {
 
             {showSearch ? 
             <>
-                <button onClick={startSearch} className="">Search</button>
+                <button onClick={startSearch} className="requestSender">Search</button>
                 <input
                   type="text"
                   value={query}

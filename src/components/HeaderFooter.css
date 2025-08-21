@@ -162,6 +162,8 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+
+/* If no search input is shown */
 .search-btn {
   color: #e5e5e5;
   text-decoration: none;
@@ -178,6 +180,41 @@
 .search-btn:hover {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* To start the search request */
+.requestSender {
+  background-color: #e50914; /* Netflix-Rot */
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px 0 0 4px; /* nur linke Seite abgerundet */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.requestSender:hover {
+  background-color: #f40612;
+  transform: scale(1.05);
+}
+
+.requestSender:active {
+  transform: scale(0.98);
+}
+.search-input {
+  flex: 1;
+  padding: 4px 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 0 4px 4px 0; /* nur rechte Seite abgerundet */
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
 }
 
 

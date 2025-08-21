@@ -3,7 +3,7 @@ import './globals.css';
 import '../components/HeaderFooter.css';
 import type { Metadata } from 'next';
 import { SignupProvider } from '../context/SignupContext';
-import AuthHeader from '@/components/AuthHeader';
+import AuthHeader from '@/components/header/AuthHeader';
 import Footer from '../components/Footer';
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {

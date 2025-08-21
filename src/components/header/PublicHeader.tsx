@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
-import { auth } from '../lib/firebase';
+import { auth } from '../../lib/firebase';
 
 export default function PublicHeader() {
   const [showLogin, setShowLogin] = useState(false);

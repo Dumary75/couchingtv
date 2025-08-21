@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 import PublicHeader from './PublicHeader';
 import PrivateHeader from './PrivateHeader';
 

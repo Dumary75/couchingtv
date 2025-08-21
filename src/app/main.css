@@ -120,6 +120,10 @@ body {
   padding: 0 20px;
 }
 
+.video-grid .search {
+ margin-top: 15rem;
+}
+
 h1{
 
   color: #fff;

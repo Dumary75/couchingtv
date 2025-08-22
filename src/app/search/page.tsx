@@ -48,6 +48,7 @@ useEffect(() => {
 
   return (
        <>
+       <h2>Note: Only 8 results are displayed!</h2>
           <div className='video-grid'>
                 {videos.map((video) => (
                             <div

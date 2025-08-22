@@ -17,6 +17,7 @@ const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
 
 
 const startSearch = () => {
+  setShowSearch(false);
   router.push(`/search?query=${encodeURIComponent(query)}`); 
 }
 

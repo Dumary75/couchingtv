@@ -21,9 +21,15 @@ const startSearch = () => {
 }
 
 
-  const handleLogout = () => {
+const handleLogout = () => {
     signOut(auth);
   };
+
+
+const handleProfileClick = () => {
+    router.push('/profil');
+  };
+
 
   return ( 
         <header className="couching-header logged-in">
@@ -48,7 +54,7 @@ const startSearch = () => {
               </button>}
 
             <a href="#" className="nav-link">My List</a>
-            <a href="#" className="nav-link">Profil</a>
+            <a className="nav-link" onClick={handleProfileClick}>Profil</a>
             <button onClick={handleLogout} className="logout-btn">
               Logout
             </button>

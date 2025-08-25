@@ -1,11 +1,201 @@
+/* Allgemeines Layout - Dark Mode */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  margin: 0;
+  padding: 0;
+}
 
+.main-content {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #1e1e1e;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
 
+/* Überschriften */
+.main-content h1 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
 
-img {
-    transform: scale(0.5);
-    margin: 0;
+/* Profil-Karten */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #2a2a2a;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #333333;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+/* Name-Anzeige und Buttons */
+.name-display, .name-edit {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.name-display p {
+  margin: 0;
+  font-weight: 500;
+  color: #e5e7eb;
+}
+
+.name-display button,
+.name-edit button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.name-display button:hover,
+.name-edit button:hover {
+  opacity: 0.8;
 }
 
 .name-display button {
-    margin-left: 1rem
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.name-display button:nth-child(3) { /* Delete Button */
+  background-color: #ef4444;
+  color: #fff;
+}
+
+.name-edit button {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+/* Name-Editing Input */
+.name-edit input {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #555555;
+  background-color: #1e1e1e;
+  color: #e5e7eb;
+  font-size: 1rem;
+  outline: none;
+}
+
+.name-edit input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+}
+
+/* Avatar */
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #555555;
+  cursor: pointer;
+}
+
+/* Dropdown für Avatare */
+.dropdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background-color: #2a2a2a;
+  border: 1px solid #444444;
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.avatar-option {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #555555;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.avatar-option:hover {
+  transform: scale(1.1);
+  border-color: #3b82f6;
+}
+
+/* Dropdown Schließen Button */
+.dropdown-close {
+  margin-top: 8px;
+  padding: 6px 12px;
+  background-color: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dropdown-close:hover {
+  opacity: 0.8;
+}
+
+/* Create-Profil Formular */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+form input {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #555555;
+  font-size: 1rem;
+  text-align: center;
+  outline: none;
+  background-color: #1e1e1e;
+  color: #e5e7eb;
+}
+
+form input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+}
+
+form button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #3b82f6;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+form button:hover {
+  background-color: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .name-display, .name-edit {
+    flex-direction: column;
+    gap: 6px;
+  }
 }

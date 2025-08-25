@@ -18,7 +18,6 @@ const { user } = useAuth();
 
     const formData = new FormData(e.currentTarget);
     const name = formData.get("name") as string;
-    // const profilPicture = formData.get("profilPicture") as string;
 
     try {
       const profilesRef = collection(
@@ -44,8 +43,7 @@ const { user } = useAuth();
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="name" placeholder="name" required />
-      {/* <input type="text" name="profilPicture" placeholder="profilPicture" required /> */}
+      <input type="text" name="name" placeholder="name" required style={{textAlign:'center'}}/> <br />
       <button type="submit">Profil erstellen</button>
     </form>
   );

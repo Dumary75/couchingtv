@@ -3,8 +3,12 @@
 import { FormEvent } from "react";
 import { auth, database } from "@/lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function CreateProfil() {
+const { user } = useAuth();
+
+
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!auth.currentUser) {
@@ -13,21 +17,21 @@ export default function CreateProfil() {
     }
 
     const formData = new FormData(e.currentTarget);
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
+    const name = formData.get("name") as string;
+    // const profilPicture = formData.get("profilPicture") as string;
 
     try {
       const profilesRef = collection(
         database,
         "users",
-
-
+        user!.uid,
+        'profiles'
       );
 
       await addDoc(profilesRef, {
         uid: auth.currentUser.uid,
-        email,
-        password,
+        name,
+        avatarUrl: './avatars/avatar1.png'
       });
 
 
@@ -40,8 +44,8 @@ export default function CreateProfil() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="email" placeholder="Email" required />
-      <input type="text" name="password" placeholder="Passwort" required />
+      <input type="text" name="name" placeholder="name" required />
+      {/* <input type="text" name="profilPicture" placeholder="profilPicture" required /> */}
       <button type="submit">Profil erstellen</button>
     </form>
   );

@@ -275,3 +275,18 @@
   padding-top: 20px;
   border-top: 1px solid #333;
 }
+
+/* Header Avatar */
+.header-avatar {
+  width: 40px;          /* Avatar-Größe */
+  height: 40px;
+  border-radius: 50%;   /* rund machen */
+  object-fit: cover;    /* skaliert das Bild richtig */
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 0.2s ease-in-out;
+}
+
+.header-avatar:hover {
+  border: 2px solid #fff; /* leichter Hover-Effekt */
+}

@@ -18,7 +18,7 @@ export default function PrivateHeader() {
       <div className="logo"><a href='/'>COUCHING TV</a></div>
       <nav className="main-nav">
         <SearchButton />
-        <a href="#" className="nav-link">My List</a>
+        <a href="/mylist" className="nav-link">My List</a>
         <Profil />
         <button onClick={handleLogout} className="logout-btn">Logout</button>
       </nav>

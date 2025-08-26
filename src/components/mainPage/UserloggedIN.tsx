@@ -1,9 +1,42 @@
        
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { videoList } from '../../app/videoList'; 
+import AddToMyListButton from '@/app/search/AddToMyListButton';
+import { doc, collection, onSnapshot, getDoc} from "firebase/firestore";
+import { database } from "@/lib/firebase";
+import { useAuth } from '../../hooks/useAuth';
+
+type Profile = { id: string; name: string; avatarUrl: string };
        
  export default function UserloggedIN() {
       const [activeVideo, setActiveVideo] = useState<string | null>(null);
+      const [profiles, setProfiles] = useState<Profile[]>([]);
+      const [activeProfile, setActiveProfile] = useState<Profile | null>(null);
+      const { user } = useAuth();  
+
+        useEffect(() => {
+          if (!user) return;
+      
+          const profilesRef = collection(database, "users", user.uid, "profiles");
+          const unsub = onSnapshot(profilesRef, async (snapshot) => {
+            const profileData = snapshot.docs.map(
+              (d) => ({ id: d.id, ...(d.data() as Omit<Profile, "id">) }) as Profile
+            );
+            setProfiles(profileData);
+      
+            // Aktives Profil aus users/{uid} laden
+            const userRef = doc(database, "users", user.uid);
+            const userSnap = await getDoc(userRef);
+            if (userSnap.exists()) {
+              const activeProfileId = userSnap.data().activeProfileId as string;
+              const active = profileData.find(p => p.id === activeProfileId) || null;
+              setActiveProfile(active);
+            }
+      
+          });
+      
+          return () => unsub();
+        }, [user]);
       
       
     return (  
@@ -26,6 +59,9 @@ import { videoList } from '../../app/videoList';
                                       />
                                     </div>
                                     <p>{video.title}</p>
+                                                                        {activeProfile && (
+                                                                            <AddToMyListButton video={video} activeProfileId={activeProfile.id} />
+                                                                          )}
                                   </div>
                   ))}
                         </div>

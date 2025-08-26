@@ -217,3 +217,27 @@ main {
 .start-btn:hover {
   background-color: #f40612;
 } 
+
+
+/* Addto List Button */
+.add-to-mylist-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff4f5a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+.add-to-mylist-btn:hover {
+  background-color: #ff6b74;
+  transform: translateX(-50%) translateY(-2px);
+}

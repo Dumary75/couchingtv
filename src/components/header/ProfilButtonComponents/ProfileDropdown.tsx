@@ -40,7 +40,8 @@ const ProfileDropdown: React.FC<Props> = ({
         />
       ))}
       <button className="dropdown-edit" onClick={onEditProfiles}>
-        ⚙️ Profile bearbeiten
+        ⚙️ <br />
+        Profile bearbeiten
       </button>
     </div>
   );

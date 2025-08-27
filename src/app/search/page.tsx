@@ -8,7 +8,17 @@ import { database } from "@/lib/firebase";
 
 import AddToMyListButton from './AddToMyListButton';
 
-type Profile = { id: string; name: string; avatarUrl: string };
+interface Video {
+  id: string;
+  title: string;
+}
+
+type Profile = {
+  id: string;
+  name: string;
+  avatarUrl: string;
+  myList?: Video[];
+};
 
 export default function SearchPage() {
 const { loading, user } = useAuth();
@@ -39,10 +49,6 @@ const [activeProfile, setActiveProfile] = useState<Profile | null>(null);
     return () => unsub();
   }, [user]);
 
-interface Video {
-  id: string;
-  title: string;
-}
 
 const [videos, setVideos] = useState<Video[]>([]);
 const [activeVideo, setActiveVideo] = useState<string | null>(null);
@@ -85,18 +91,22 @@ useEffect(() => {
                             <div
                               key={video.id}
                               className='video-card search' 
-                              onClick={() => setActiveVideo(video.id)}
                             >
                                     <div>
                                       <img
                                         src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
                                         alt={video.title}
+                                        onClick={() => setActiveVideo(video.id)}
                                       />
                                     </div>
                                     <p>{video.title}</p> 
-                                    {activeProfile && (
-                                        <AddToMyListButton video={video} activeProfileId={activeProfile.id} />
-                                      )}
+                                        {activeProfile && (
+                                          <AddToMyListButton
+                                            video={video}
+                                            activeProfileId={activeProfile.id}
+                                            myList={activeProfile.myList || []}
+                                          />
+                                        )}
                                 </div>
                          ))} 
           </div>

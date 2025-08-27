@@ -8,9 +8,6 @@ export const videoList = [
       { id: "ZW70KEmr1fk", title: "Testing the CHEAPEST vs MOST EXPENSIVE taba squishies! " },
       { id: "nCps1Z_uTes", title: "I Bought 1,000 lbs of LOST MAIL Packages (FINALE)" },
       { id: "05hRdBxjZJo", title: "TRYING VIRAL SNACK FOODS FROM TIKTOK SHOP!" },
-      { id: "D9K_Oy1vKew", title: "GUESS THE SINGER FT ED SHEERAN" },
-
-      { id: "y34j_jLMA8c", title: "50 more strangers swipe on each other | season 3" },
     ],
   },
   {
@@ -22,8 +19,6 @@ export const videoList = [
       { id: "RgKAFK5djSk", title: "Wiz Khalifa - See You Again ft. Charlie Puth" },
       { id: "fRh_vgS2dFE", title: "Justin Bieber - Sorry" },
       { id: "kOkQ4T5WO9E", title: "Calvin Harris, Rihanna - This Is What You Came For" },
-      { id: "uelHwf8o7_U", title: "Eminem - Love The Way You Lie ft. Rihanna" },
-      { id: "kJQP7kiw5Fk", title: "Luis Fonsi - Despacito ft. Daddy Yankee" },
     ],
   },
   {
@@ -35,9 +30,6 @@ export const videoList = [
       { id: "Ude5Q2cLWuU", title: "$5 VS $1,000,000 Accessories NFL Players Wore" },
       { id: "NdrGI0YHS1E", title: "Dmitry Bivol vs Jackson Jr  Latest Boxing Highlights" },
       { id: "pEE_6i7g0AM", title: "LaMelo Ball - Ultimate Career Highlights for 50 Minutes Straight !" },
-      { id: "ah72KEAG5Cc", title: "Portugal 5 vs 2 Denmark  Full Match Highlights" },
-      { id: "AxwOlzOc_NY", title: "1 Hour of the Top Plays of the 2022-23 NBA Season" }
-
     ],
   },
   {
@@ -49,8 +41,6 @@ export const videoList = [
       { id: "vBAnTKGioq4", title: "Enshrouded - Wake of the Water" },
       { id: "4q2Kfm-knAc", title: "1 TRILLION ROBLOX VIEWS ON YOUTUBE?!" },
       { id: "RIJ4u8eMvPM", title: "If I Started a Gaming Channel in 2025, I'd Do This" },
-      { id: "FKOqOoPE3I0", title: "10 Minutes of GAMERS RAGE Compilation" },
-      { id: "WVvw-BmpbK0", title: "FUNNIEST & BEST GAMING MOMENTS OF 2025" },
     ],
   },
   {
@@ -62,8 +52,6 @@ export const videoList = [
       { id: "uvROISVUdKE", title: "Peter Stormare Is the King of European Accents" },
       { id: "3J7sZtXm4T8", title: "Speaking German for 3 minutes" },
       { id: "rpk_me4Urig", title: "Funny Song" },
-      { id: "6Lsil8253GI", title: "Charlie Chaplin Comedy Videos" },
-      { id: "k9Cv8IcnWuw", title: "Indian Standup Comedy | Shridhar Venkataramana" },
     ],
   },
 ];

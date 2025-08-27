@@ -218,7 +218,6 @@ main {
   background-color: #f40612;
 } 
 
-
 /* Addto List Button */
 .add-to-mylist-btn {
   position: absolute;
@@ -233,11 +232,41 @@ main {
   cursor: pointer;
   font-weight: bold;
   font-size: 0.85rem;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: all(0.2s ease);
   margin-top: 1rem;
+  opacity: 0;
 }
 
 .add-to-mylist-btn:hover {
   background-color: #ff6b74;
   transform: translateX(-50%) translateY(-2px);
+}
+
+/* Remove from List Button */
+.remove-from-mylist-btn {
+  background-color: #000; /* helles Rot für Warnung */
+  color: #d32f2f; /* kräftiges Rot für Text */
+  border: 1px solid #d32f2f;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.1s;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.remove-from-mylist-btn:hover {
+  background-color: #ffd6d6; /* leicht dunkleres Rot */
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* Change opacity from add / remove buttons */
+.video-card:hover .add-to-mylist-btn,
+.video-card:hover .remove-from-mylist-btn {
+  opacity: 1;
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useProfiles } from '@/context/ProfileContext';
 import AddToMyListButton from '@/app/search/AddToMyListButton';
 import RemoveFromMyListButton from '@/app/mylist/RemoveButton';
 
@@ -25,16 +26,15 @@ interface Props {
   // entweder Kategorien oder flache Liste
   videoList?: VideoCategory[];
   videos?: Video[];
-  activeProfile: Profile | null;
   mode?: 'add' | 'remove'; // bestimmt welcher Button gerendert wird
 }
 
 export default function videoListRendering({
   videoList,
   videos,
-  activeProfile,
   mode = 'add',
 }: Props) {
+  const { activeProfile } = useProfiles();
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   const renderVideoCard = (video: Video) => (

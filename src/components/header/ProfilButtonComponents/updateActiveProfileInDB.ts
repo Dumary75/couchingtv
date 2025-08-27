@@ -8,8 +8,8 @@ export async function updateActiveProfileInDB(userId: string, profileId: string)
     await updateDoc(userRef, {
       activeProfileId: profileId,
     });
-    console.log("Active profile updated:", profileId);
   } catch (err) {
+    alert('Error, Check console.log!');
     console.error("Error updating active profile:", err);
   }
 }

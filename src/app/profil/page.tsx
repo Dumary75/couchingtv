@@ -1,17 +1,18 @@
 "use client";
 
 import "./profil.css";
-import { useEffect, useState } from "react";
-import { onSnapshot, collection, doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { useState } from "react";
+import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { database, auth } from "@/lib/firebase";
 import { useAuth } from "@/hooks/useAuth";
 import CreateProfil from "./Createprofil";
+import { useProfiles } from '@/context/ProfileContext';
 
 type Profile = { id: string; name: string; avatarUrl: string };
 
 export default function Profil() {
+  const { profiles } = useProfiles();
   const { user, loading } = useAuth();
-  const [profileList, setProfileList] = useState<Profile[]>([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [editingAvatarId, setEditingAvatarId] = useState<string | null>(null);
 
@@ -34,21 +35,6 @@ export default function Profil() {
     "/avatars/avatar10.png",
     "/avatars/avatar11.png",
   ];
-
- // Lade Profile aus Firestore
-  useEffect(() => {
-    if (!user) return;
-    const profilesRef = collection(database, "users", user.uid, "profiles");
-    const unsub = onSnapshot(profilesRef, (snapshot) => {
-      const profiles = snapshot.docs.map(
-        (d) => ({ id: d.id, ...(d.data() as Omit<Profile, "id">) }) as Profile
-      );
-      setProfileList(profiles);
-    });
-    return () => unsub();
-  }, [user]);
-
-
 
   if (loading) return <p>Lade Benutzer...</p>;
   if (!user) return <p>Bitte einloggen</p>;
@@ -105,7 +91,7 @@ async function handleDelete(profileId: string) {
     <div className="main-content">
       <h1>Dein Profilbereich</h1>
 
-      {profileList.map((profile) => (
+      {profiles.map((profile) => (
         <div key={profile.id} className="profile-card">
           {/* Name-Block: genau eine Kachel im Edit-Modus */}
           {editingNameId === profile.id ? (
@@ -174,7 +160,7 @@ async function handleDelete(profileId: string) {
       ))}
 
   <h1>Profilerstellen</h1>
-  {profileList.length < 5 ? (
+  {profiles.length < 5 ? (
     <CreateProfil />
      ) : (
     <p>Maximale Anzahl an Profilen erreicht (5).</p>

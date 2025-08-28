@@ -2,7 +2,7 @@
 
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { database } from "@/lib/firebase";
-import { useAuth } from "@/hooks/useAuth";
+import { useProfiles } from '@/context/ProfileContext';
 
 interface Video {
   id: string;
@@ -18,7 +18,7 @@ interface Props {
 }
 
 export default function AddToMyListButton({ video, activeProfileId, myList }: Props) {
-  const { user } = useAuth();
+  const { user } = useProfiles();
 
   const handleAdd = async () => {
     if (!user) return;

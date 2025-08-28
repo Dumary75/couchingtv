@@ -11,8 +11,8 @@ import { useProfiles } from '@/context/ProfileContext';
 type Profile = { id: string; name: string; avatarUrl: string };
 
 export default function Profil() {
-  const { profiles } = useProfiles();
-  const { user, loading } = useAuth();
+  const { profiles, user } = useProfiles();
+  const { loading } = useAuth();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [editingAvatarId, setEditingAvatarId] = useState<string | null>(null);
 

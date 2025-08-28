@@ -2,13 +2,13 @@
 
 import './main.css'; 
 
-import { useAuth } from '../hooks/useAuth';
+import { useProfiles } from '@/context/ProfileContext';
 import UserloggedIN from '../components/mainPage/UserloggedIN';
 import UserloggedOUT from '@/components/mainPage/UserloggedOUT';
 
 
 export default function Home() {
-  const { user } = useAuth();
+  const { user } = useProfiles();
 
   return (
     <div className="couching-container">

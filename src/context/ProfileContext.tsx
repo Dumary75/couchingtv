@@ -17,6 +17,7 @@ type ProfileContextType = {
   profiles: Profile[];
   activeProfile: Profile | null;
   setActiveProfile: (p: Profile | null) => void;
+  user: any;
 };
 
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
@@ -49,7 +50,7 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   }, [user]);
 
   return (
-    <ProfileContext.Provider value={{ profiles, activeProfile, setActiveProfile }}>
+    <ProfileContext.Provider value={{ profiles, activeProfile, setActiveProfile, user }}>
       {children}
     </ProfileContext.Provider>
   );

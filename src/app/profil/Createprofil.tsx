@@ -3,10 +3,10 @@
 import { FormEvent } from "react";
 import { auth, database } from "@/lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
-import { useAuth } from "@/hooks/useAuth";
+import { useProfiles } from '@/context/ProfileContext';
 
 export default function CreateProfil() {
-const { user } = useAuth();
+const { user } = useProfiles();
 
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {

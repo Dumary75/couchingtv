@@ -1,41 +1,17 @@
-// Profil.tsx
-import { useAuth } from "@/hooks/useAuth";
+
 import { database } from '../../lib/firebase';
-import { useEffect, useState } from "react";
-import { onSnapshot, collection, doc, getDoc, updateDoc } from "firebase/firestore";
+import { useState } from "react";
+import { doc, updateDoc } from "firebase/firestore";
 import { useRouter } from 'next/navigation';
 import ProfileDropdown from "./ProfilButtonComponents/ProfileDropdown";
+import { useProfiles } from '@/context/ProfileContext';
 
 type Profile = { id: string; name: string; avatarUrl: string };
 
 export default function Profil() {
-  const { user } = useAuth();
-  const [profileList, setProfileList] = useState<Profile[]>([]);
-  const [activeProfile, setActiveProfile] = useState<Profile | null>(null);
+  const { activeProfile, user, setActiveProfile, profiles } = useProfiles(); 
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
-    if (!user) return;
-
-    const profilesRef = collection(database, "users", user.uid, "profiles");
-    const unsub = onSnapshot(profilesRef, async (snapshot) => {
-      const profiles = snapshot.docs.map(
-        (d) => ({ id: d.id, ...(d.data() as Omit<Profile, "id">) }) as Profile
-      );
-      setProfileList(profiles);
-
-      const userRef = doc(database, "users", user.uid);
-      const userSnap = await getDoc(userRef);
-      if (userSnap.exists()) {
-        const activeProfileId = userSnap.data().activeProfileId as string;
-        const active = profiles.find(p => p.id === activeProfileId) || null;
-        setActiveProfile(active);
-      }
-    });
-
-    return () => unsub();
-  }, [user]);
 
   const handleProfileChange = async (profile: Profile) => {
     if (!user) return;
@@ -68,7 +44,7 @@ export default function Profil() {
       {isOpen && (
         <ProfileDropdown
           userId={user!.uid}
-          profiles={profileList}
+          profiles={profiles}
           activeProfile={activeProfile}
           setActiveProfile={handleProfileChange}
           onEditProfiles={handleManageProfiles}

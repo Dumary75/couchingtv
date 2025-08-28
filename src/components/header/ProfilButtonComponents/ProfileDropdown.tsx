@@ -13,7 +13,7 @@ interface Props {
   profiles: Profile[];
   activeProfile: Profile | null;
   setActiveProfile: (profile: Profile | null) => void;
-  onEditProfiles: () => void; // z. B. Navigation zur Profilseite
+  onEditProfiles: () => void;
 }
 
 const ProfileDropdown: React.FC<Props> = ({

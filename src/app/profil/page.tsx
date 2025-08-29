@@ -7,8 +7,7 @@ import { database, auth } from "@/lib/firebase";
 import { useAuth } from "@/hooks/useAuth";
 import CreateProfil from "./Createprofil";
 import { useProfiles } from '@/context/ProfileContext';
-
-type Profile = { id: string; name: string; avatarUrl: string };
+import { Profile } from '@/types/interface';
 
 export default function Profil() {
   const { profiles, user } = useProfiles();
@@ -79,6 +78,7 @@ async function handleDelete(profileId: string) {
       await deleteDoc(
         doc(database, "users", auth.currentUser.uid, "profiles", profileId)
       );
+      alert('Profile successfully deleted!')
     } catch (err) {
       console.error("Deletion error::", err);
     }

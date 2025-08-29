@@ -1,11 +1,6 @@
 import "./ProfileDropdown.css";
 import { updateActiveProfileInDB } from "./updateActiveProfileInDB";
-
-interface Profile {
-  id: string;
-  name: string;
-  avatarUrl?: string;
-}
+import { Profile } from '@/types/interface';
 
 interface Props {
   userId: string;

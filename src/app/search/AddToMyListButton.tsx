@@ -3,13 +3,7 @@
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { database } from "@/lib/firebase";
 import { useProfiles } from '@/context/ProfileContext';
-
-interface Video {
-  id: string;
-  title: string;
-  url?: string;
-  thumbN?: string;
-}
+import { Video } from '@/types/interface';
 
 interface Props {
   video: Video;

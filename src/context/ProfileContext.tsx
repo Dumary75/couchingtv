@@ -4,14 +4,7 @@ import { createContext, useContext, useEffect, useState, ReactNode } from "react
 import { collection, doc, getDoc, onSnapshot } from "firebase/firestore";
 import { database } from "@/lib/firebase"; 
 import { useAuth } from "@/hooks/useAuth"; 
-import type { Video } from '@/components/VideoListRendering';
-
-type Profile = {
-  id: string;
-  name: string;
-  avatarUrl: string;
-  myList?: Video[];
-};
+import { Profile } from '@/types/interface';
 
 type ProfileContextType = {
   profiles: Profile[];
@@ -29,7 +22,6 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!user) {
-      alert('Please log in first!');
       return;
     };
 

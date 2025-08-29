@@ -4,18 +4,7 @@ import { useState } from 'react';
 import { useProfiles } from '@/context/ProfileContext';
 import AddToMyListButton from '@/app/search/AddToMyListButton';
 import RemoveFromMyListButton from '@/app/mylist/RemoveButton';
-
-export interface Video {
-  id: string;
-  title: string;
-  url?: string;
-  thumbN?: string;
-}
-
-export interface Profile {
-  id: string;
-  myList?: Video[];
-}
+import { Video } from '@/types/interface';
 
 interface VideoCategory {
   category: string;

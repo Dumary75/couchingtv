@@ -3,13 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import VideoListRendering from '@/components/VideoListRendering';
-
-interface Video {
-  id: string;
-  title: string;
-}
-
-
+import { Video } from '@/types/interface';
 
 export default function SearchPage() {
 const [videos, setVideos] = useState<Video[]>([]);

@@ -5,15 +5,14 @@ import { doc, updateDoc } from "firebase/firestore";
 import { useRouter } from 'next/navigation';
 import ProfileDropdown from "./ProfilButtonComponents/ProfileDropdown";
 import { useProfiles } from '@/context/ProfileContext';
-
-type Profile = { id: string; name: string; avatarUrl: string };
+import { Profile } from '@/types/interface';
 
 export default function Profil() {
   const { activeProfile, user, setActiveProfile, profiles } = useProfiles(); 
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
-  const handleProfileChange = async (profile: Profile |) => {
+  const handleProfileChange = async (profile: Profile ) => {
     setActiveProfile(profile);
     setIsOpen(false);
 

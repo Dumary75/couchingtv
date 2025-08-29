@@ -6,7 +6,7 @@ import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/aut
 import { auth } from '../../lib/firebase';
 
 export default function PublicHeader() {
-  const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -59,8 +59,7 @@ export default function PublicHeader() {
     <header className="couching-header">
       <div className="logo"><a href='/'>COUCHING TV</a></div>
 
-      {showLogin ? (
-        <form onSubmit={handleLogin} className="login-form">
+        <form onSubmit={handleLogin} className={`login-form ${showLogin ? 'visible' : ''}`}>
           <input
             type="email"
             placeholder="E-Mail"
@@ -90,14 +89,13 @@ export default function PublicHeader() {
             Forgot Password?
           </button>
         </form>
-      ) : (
+
         <button
           onClick={() => setShowLogin(true)}
-          className="signin-btn"
+          className={showLogin? 'invisible-btn' : 'signin-btn'}
         >
           Sign In
         </button>
-      )}
     </header>
   );
 }

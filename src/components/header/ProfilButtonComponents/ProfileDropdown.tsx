@@ -8,6 +8,7 @@ interface Props {
   activeProfile: Profile | null;
   setActiveProfile: (profile: Profile ) => void;
   onEditProfiles: () => void;
+  isOpen: boolean;
 }
 
 const ProfileDropdown = ({
@@ -16,6 +17,7 @@ const ProfileDropdown = ({
   activeProfile,
   setActiveProfile,
   onEditProfiles,
+  isOpen
 }: Props) => {
   const handleSelect = (profile: Profile) => {
     setActiveProfile(profile);
@@ -23,7 +25,7 @@ const ProfileDropdown = ({
   };
 
   return (
-    <div className="dropdown-list">
+    <div className={`dropdown-list ${isOpen? 'dropdown-list-Active' : ''}`}>
       {profiles.map((profile) => (
         <img
           key={profile.id}

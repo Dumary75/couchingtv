@@ -39,15 +39,14 @@ export default function Profil() {
         <button className="nav-link" onClick={() => setIsOpen(!isOpen)}>Profil</button>
       )}
 
-      {isOpen && (
         <ProfileDropdown
           userId={user!.uid}
           profiles={profiles}
           activeProfile={activeProfile}
           setActiveProfile={handleProfileChange}
           onEditProfiles={handleManageProfiles}
+          isOpen={isOpen}
         />  
-      )}
     </div>
   );
 }

@@ -26,12 +26,13 @@ export default function Profil() {
     "/avatars/avatar3.png",
     "/avatars/avatar4.png",
     "/avatars/avatar5.png",
-    "/avatars/avatar6.png",
+    "/avatars/avatar12.png",
     "/avatars/avatar7.png",
     "/avatars/avatar8.png",
     "/avatars/avatar9.png",
     "/avatars/avatar10.png",
     "/avatars/avatar11.png",
+    "/avatars/avatar6.png"
   ];
 
   if (loading) return <p>Loading User...</p>;
@@ -93,25 +94,25 @@ async function handleDelete(profileId: string) {
       {profiles.map((profile) => (
         <div key={profile.id} className="profile-card">
           {editingNameId === profile.id ? (
-            <div className="name-edit">
-              <input
-                type="text"
-                value={draftName}
-                onChange={(e) => setDraftName(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") saveName(profile.id);
-                  if (e.key === "Escape") cancelEditName();
-                }}
-                autoFocus
-              />
-              <button onClick={() => saveName(profile.id)}>Save</button>
-              <button onClick={cancelEditName}>Cancel</button>
-            </div>
+        <div className="name-edit">
+          <input
+            type="text"
+            value={draftName}
+            onChange={(e) => setDraftName(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") saveName(profile.id);
+              if (e.key === "Escape") cancelEditName();
+            }}
+            autoFocus
+          />
+          <button className="primary" onClick={() => saveName(profile.id)}>Save</button>
+          <button className="secondary" onClick={cancelEditName}>Cancel</button>
+        </div>
           ) : (
             <div className="name-display">
               <p>Name: {profile.name}</p>
-              <button onClick={() => startEditName(profile)}>Edit</button>
-              <button onClick={() => handleDelete(profile.id)}>Delete</button>
+              <button className="primary" onClick={() => startEditName(profile)}>Edit</button>
+              <button className="danger" onClick={() => handleDelete(profile.id)}>Delete</button>
             </div>
           )}
 
@@ -126,32 +127,24 @@ async function handleDelete(profileId: string) {
             }}
           />
 
-          {dropdownOpen && editingAvatarId === profile.id && (
-            <div className="dropdown">
-              {dropdownArray.map((avatar, index) => (
-                <img
-                  key={index}
-                  src={avatar}
-                  alt={`Avatar ${index + 1}`}
-                  className="avatar-option"
-                  onClick={() => {
-                    saveAvatar(avatar, profile.id);
-                    setDropdownOpen(false);
-                    setEditingAvatarId(null);
-                  }}
-                />
-              ))}
-              <button
-                className="dropdown-close"
-                onClick={() => {
-                  setDropdownOpen(false);
-                  setEditingAvatarId(null);
-                }}
-              >
-                Close
-              </button>
-            </div>
-          )}
+      <div className={`dropdown ${editingAvatarId === profile.id ? 'dropdownActive' : ''}`}>
+        {dropdownArray.map((avatar, index) => (
+          <img
+            key={index}
+            src={avatar}
+            alt={`Avatar ${index + 1}`}
+            className="avatar-option"
+            onClick={() => saveAvatar(avatar, profile.id)}
+          />
+        ))}
+        <button
+          className="danger dropdown-close"
+          onClick={() => setEditingAvatarId(null)}
+        >
+          Close
+        </button>
+      </div>
+
 
           <br />
         </div>

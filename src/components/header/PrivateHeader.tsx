@@ -5,7 +5,7 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../../lib/firebase';
 
 import SearchButton from "./SearchButton";
-import Profil from "./Profil";
+import Profil_inHeader from "./Profil_inHeader";
 
 
 export default function PrivateHeader() {
@@ -19,7 +19,7 @@ export default function PrivateHeader() {
       <nav className="main-nav">
         <SearchButton />
         <a href="/mylist" className="nav-link">My List</a>
-        <Profil />
+        <Profil_inHeader />
         <button onClick={handleLogout} className="logout-btn">Logout</button>
       </nav>
     </header>

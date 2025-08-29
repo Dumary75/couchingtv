@@ -8,11 +8,10 @@ import { useProfiles } from '@/context/ProfileContext';
 export default function CreateProfil() {
 const { user } = useProfiles();
 
-
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!auth.currentUser) {
-      alert("Kein User eingeloggt!");
+      alert("No user logged in!");
       return;
     }
 
@@ -34,18 +33,17 @@ const { user } = useProfiles();
         myList: []
       });
 
-
-      alert("Profil erfolgreich erstellt!");
+      alert("Profile created successfully!");
     } catch (error) {
       console.error(error);
-      alert("Fehler beim Erstellen des Profils");
+      alert("Error creating profile!");
     }
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" name="name" placeholder="name" required style={{textAlign:'center'}}/> <br />
-      <button type="submit">Profil erstellen</button>
+      <button type="submit">Create Profil</button>
     </form>
   );
 }

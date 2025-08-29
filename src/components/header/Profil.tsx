@@ -13,12 +13,11 @@ export default function Profil() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
-  const handleProfileChange = async (profile: Profile) => {
-    if (!user) return;
+  const handleProfileChange = async (profile: Profile |) => {
     setActiveProfile(profile);
     setIsOpen(false);
 
-    // im User-Dokument speichern
+    // Save in User-document
     const userRef = doc(database, "users", user.uid);
     await updateDoc(userRef, { activeProfileId: profile.id });
   };

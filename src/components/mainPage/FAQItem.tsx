@@ -23,7 +23,7 @@ export default function FAQItem({ question, children }: FAQItemProps) {
         aria-expanded={isOpen}
       >
         {question}
-        <span className="faq-icon">{isOpen ? '−' : '+'}</span>
+        <span className="faq-icon">{isOpen ? '-' : '+'}</span>
       </button>
       <div className={`faq-answer ${isOpen ? 'open' : ''}`}>
         {children}

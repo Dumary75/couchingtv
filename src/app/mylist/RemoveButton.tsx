@@ -2,14 +2,14 @@
 
 import { doc, updateDoc, arrayRemove } from "firebase/firestore";
 import { database } from "@/lib/firebase";
-import { useAuth } from "@/hooks/useAuth";
+import { useProfiles } from '@/context/ProfileContext';
 
 interface Video {
   id: string;
   title: string;
   url?: string;
   thumbN?: string;
-  addedAt?: string; // optional, da beim Entfernen relevant
+  addedAt?: string;
 }
 
 interface Props {
@@ -18,10 +18,9 @@ interface Props {
 }
 
 export default function RemoveFromMyListButton({ video, activeProfileId }: Props) {
-  const { user } = useAuth();
+  const { user } = useProfiles();
 
   const handleRemove = async () => {
-    if (!user) return;
 
     const profileRef = doc(database, "users", user.uid, "profiles", activeProfileId);
 
@@ -29,15 +28,15 @@ export default function RemoveFromMyListButton({ video, activeProfileId }: Props
       await updateDoc(profileRef, {
         myList: arrayRemove(video),
       });
-      alert("Video entfernt");
+      alert("Video removed");
     } catch (err) {
-      console.error("Fehler beim Entfernen aus myList:", err);
+      console.error("Error removing from myList", err);
     }
   };
 
   return (
     <button onClick={handleRemove} className="remove-from-mylist-btn">
-      Aus My List entfernen
+      Remove from My List
     </button>
   );
 }

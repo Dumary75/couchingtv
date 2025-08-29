@@ -3,9 +3,9 @@
 
 import { createContext, useContext, useReducer, ReactNode } from 'react';
 
-// Typen
+// States
 type SignupState = {
-  step: number; // 1 = Email, 2 = Passwort, 3 = Plan, 4 = Profil, 5 = Willkommen
+  step: number; // 1 = Email, 2 = Password, 3 = Plan, 4 = Profil, 5 = Welcome
   email: string;
   password: string;
   plan: string;
@@ -19,7 +19,7 @@ type Action =
   | { type: 'SET_PROFILE'; payload: string }
   | { type: 'RESET' };
 
-// Initialer State
+// Initial State
 const initialState: SignupState = {
   step: 1,
   email: '',

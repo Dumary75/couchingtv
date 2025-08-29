@@ -17,11 +17,10 @@ export default function Profil() {
   const [editingAvatarId, setEditingAvatarId] = useState<string | null>(null);
 
 
-  // Name-Editing nur für EINE Kachel
+  // Name-Editing nur for ONE tile
   const [editingNameId, setEditingNameId] = useState<string | null>(null);
   const [draftName, setDraftName] = useState("");
 
-  // Nutze im Next.js `public/`-Ordner absolute Pfade:
   const dropdownArray = [
     "/avatars/avatar1.png",
     "/avatars/avatar2.png",
@@ -36,17 +35,17 @@ export default function Profil() {
     "/avatars/avatar11.png",
   ];
 
-  if (loading) return <p>Lade Benutzer...</p>;
-  if (!user) return <p>Bitte einloggen</p>;
+  if (loading) return <p>Loading User...</p>;
+  if (!user) return <p>Please log in first</p>;
 
-  // Avatar speichern
+  // Save Avatar
   const saveAvatar = async (avatar: string, profileId: string) => {
     const profileRef = doc(database, "users", user.uid, "profiles", profileId);
     await updateDoc(profileRef, { avatarUrl: avatar });
   };
 
 
-  // Name-Editing Funktionen
+  // Name-Editing Functions
   const startEditName = (p: Profile) => {
     setEditingNameId(p.id);
     setDraftName(p.name);
@@ -66,7 +65,7 @@ export default function Profil() {
   };
 
 
-// Profil löschen 
+// Profil delete 
 async function handleDelete(profileId: string) {
     if (!auth.currentUser) return;
 
@@ -81,7 +80,7 @@ async function handleDelete(profileId: string) {
         doc(database, "users", auth.currentUser.uid, "profiles", profileId)
       );
     } catch (err) {
-      console.error("Fehler beim Löschen:", err);
+      console.error("Deletion error::", err);
     }
   }
 
@@ -89,11 +88,10 @@ async function handleDelete(profileId: string) {
 
   return (
     <div className="main-content">
-      <h1>Dein Profilbereich</h1>
+      <h1>Your profile area</h1>
 
       {profiles.map((profile) => (
         <div key={profile.id} className="profile-card">
-          {/* Name-Block: genau eine Kachel im Edit-Modus */}
           {editingNameId === profile.id ? (
             <div className="name-edit">
               <input
@@ -117,7 +115,7 @@ async function handleDelete(profileId: string) {
             </div>
           )}
 
-          {/* Avatar + Dropdown nur für die angeklickte Kachel */}
+          {/* Avatar + Dropdown editing*/}
           <img
             src={profile.avatarUrl}
             alt="Profil-Avatar"
@@ -150,7 +148,7 @@ async function handleDelete(profileId: string) {
                   setEditingAvatarId(null);
                 }}
               >
-                Schließen
+                Close
               </button>
             </div>
           )}
@@ -159,13 +157,12 @@ async function handleDelete(profileId: string) {
         </div>
       ))}
 
-  <h1>Profilerstellen</h1>
-  {profiles.length < 5 ? (
-    <CreateProfil />
-     ) : (
-    <p>Maximale Anzahl an Profilen erreicht (5).</p>
-    )}
-
+        <h1>Create Profile</h1>
+        {profiles.length < 5 ? (
+          <CreateProfil />
+          ) : (
+          <p>Maximum number of profiles reached (5).</p>
+          )}
     </div>
   );
 }

@@ -14,18 +14,17 @@ interface Video {
 interface Props {
   video: Video;
   activeProfileId: string;
-  myList: Video[]; // aktuelle MyList vom aktiven Profil
+  myList: Video[]; // currently myList from profile
 }
 
 export default function AddToMyListButton({ video, activeProfileId, myList }: Props) {
   const { user } = useProfiles();
 
   const handleAdd = async () => {
-    if (!user) return;
 
-    // Prüfung beim Klick
+    // Checking by klick if the video already is in my List
     const exists = myList.some(v => v.id === video.id);
-    if (exists) return alert("Video ist bereits in deiner MyList!");
+    if (exists) return alert("Video is already in your MyList!");
 
     const profileRef = doc(database, "users", user.uid, "profiles", activeProfileId);
     const videoToAdd = {
@@ -37,16 +36,16 @@ export default function AddToMyListButton({ video, activeProfileId, myList }: Pr
       await updateDoc(profileRef, {
         myList: arrayUnion(videoToAdd),
       });
-      alert("Video hinzugefügt");
+      alert("Video added");
     } catch (err) {
-      console.error("Fehler beim Hinzufügen zu MyList:", err);
-      alert("Fehler beim Hinzufügen zu MyList, bitte erneut versuchen.");
+      console.error("Error adding to MyList:", err);
+      alert("Error adding to MyList, please try again.");
     }
   };
 
   return (
     <button onClick={handleAdd} className="add-to-mylist-btn">
-      Zur MyList hinzufügen
+      Add to my List
     </button>
   );
 }

@@ -16,7 +16,7 @@ export default function ProfilePage() {
 
   const handleCreateAccount = async () => {
     if (!name.trim()) {
-      setError('Bitte gib einen Profilnamen ein');
+      setError('Please enter a profilename');
       return;
     }
 
@@ -24,21 +24,21 @@ export default function ProfilePage() {
     setError('');
 
     try {
-      // 1. Account bei Firebase erstellen
+      // 1. Create account by firebase
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         state.email,
         state.password
       );
 
-      // 2. Bestätigungs-E-Mail senden
+      // 2. send confirmation email
       await sendEmailVerification(userCredential.user);
       await signOut(auth);
 
-      // 3. Profilnamen speichern
+      // 3. save Profilename
       dispatch({ type: 'SET_PROFILE', payload: name });
 
-      // 4. Weiter zur Willkommensseite
+      // 4. Continue to the welcome page
       router.push('/signup/welcome');
     } catch (err: any) {
       setError(err.message || 'Error by creating account');

@@ -23,10 +23,10 @@ interface VideoCategory {
 }
 
 interface Props {
-  // entweder Kategorien oder flache Liste
+  // Either categories or simple video list
   videoList?: VideoCategory[];
   videos?: Video[];
-  mode?: 'add' | 'remove'; // bestimmt welcher Button gerendert wird
+  mode?: 'add' | 'remove'; // Determines which button is rendered
 }
 
 export default function videoListRendering({
@@ -67,7 +67,7 @@ export default function videoListRendering({
 
   return (
     <div className="video-list-rendering">
-      {/* Fall 1: Kategorien */}
+      {/* Case 1: Categories */}
       {videoList?.map((cat) => (
         <section key={cat.category}>
           <h1>{cat.category}</h1>
@@ -77,14 +77,14 @@ export default function videoListRendering({
         </section>
       ))}
 
-      {/* Fall 2: Flache Liste */}
+      {/* Case 2: Simple video list */}
       {videos && (
         <div className="video-grid">
           {videos.map(renderVideoCard)}
         </div>
       )}
 
-      {/* Overlay für Video */}
+      {/* Video Overlay */}
       {activeVideo && (
         <div className="video-overlay" onClick={() => setActiveVideo(null)}>
           <button className="close-btn" onClick={() => setActiveVideo(null)}>✕</button>

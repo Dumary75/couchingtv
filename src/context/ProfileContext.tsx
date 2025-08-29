@@ -28,7 +28,10 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   const [activeProfile, setActiveProfile] = useState<Profile | null>(null);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      alert('Please log in first!');
+      return;
+    };
 
     const profilesRef = collection(database, "users", user.uid, "profiles");
     const unsub = onSnapshot(profilesRef, async (snapshot) => {

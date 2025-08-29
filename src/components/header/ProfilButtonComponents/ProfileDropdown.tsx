@@ -1,4 +1,3 @@
-import React from "react";
 import "./ProfileDropdown.css";
 import { updateActiveProfileInDB } from "./updateActiveProfileInDB";
 
@@ -12,18 +11,17 @@ interface Props {
   userId: string;
   profiles: Profile[];
   activeProfile: Profile | null;
-  setActiveProfile: (profile: Profile | null) => void;
+  setActiveProfile: (profile: Profile ) => void;
   onEditProfiles: () => void;
 }
 
-const ProfileDropdown: React.FC<Props> = ({
+const ProfileDropdown = ({
   userId,
   profiles,
   activeProfile,
   setActiveProfile,
-  onEditProfiles
-}) => {
-
+  onEditProfiles,
+}: Props) => {
   const handleSelect = (profile: Profile) => {
     setActiveProfile(profile);
     updateActiveProfileInDB(userId, profile.id);
@@ -35,13 +33,15 @@ const ProfileDropdown: React.FC<Props> = ({
         <img
           key={profile.id}
           src={profile.avatarUrl}
-          className={`dropdown-avatar ${activeProfile?.id === profile.id ? "active" : ""}`}
+          className={`dropdown-avatar ${
+            activeProfile?.id === profile.id ? "active" : ""
+          }`}
           onClick={() => handleSelect(profile)}
         />
       ))}
       <button className="dropdown-edit" onClick={onEditProfiles}>
         ⚙️ <br />
-        Profile bearbeiten
+        Edit Profile
       </button>
     </div>
   );

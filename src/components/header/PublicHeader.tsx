@@ -24,10 +24,10 @@ export default function PublicHeader() {
   }
   try {
     await sendPasswordResetEmail(auth, email);
-    alert('E-Mail zum Zurücksetzen des Passworts wurde gesendet!');
+    alert('Password reset email sent!!');
   } catch (error) {
-    console.error('Fehler beim Senden der E-Mail:', error);
-    alert('Fehler: ' + (error as any).message);
+    console.error('Error sending email:', error);
+    alert('Error: ' + (error as any).message);
   }
 };
 

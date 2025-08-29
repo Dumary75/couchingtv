@@ -29,7 +29,7 @@ export default function PasswordPage() {
   return (
     <div className="background_signup">
         <div className="signup-page">
-        <h2>Passwort erstellen</h2>
+        <h2>Create passwort</h2>
         <p>E-Mail: {state.email}</p>
         <form onSubmit={handleSubmit}>
             <input
@@ -39,10 +39,9 @@ export default function PasswordPage() {
             placeholder="Passwort eingeben"
             required
             />
-            <button type="submit">Weiter</button>
+            <button type="submit">Continue</button>
         </form>
         </div>
     </div>
-
   );
 }

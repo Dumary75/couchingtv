@@ -3,11 +3,19 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import VideoListRendering from '@/components/VideoListRendering';
-import { Video } from '@/types/interface';
+import { useProfiles } from '@/context/ProfileContext';
+
+interface Video {
+  id: string;
+  title: string;
+}
+
+
 
 export default function SearchPage() {
 const [videos, setVideos] = useState<Video[]>([]);
 const searchParams = useSearchParams();
+const { user } = useProfiles();
      
 useEffect(() => {
   
@@ -35,12 +43,16 @@ useEffect(() => {
 
   return (
        <div className='main-content'>
-       <h2>Note: Only 6 results are displayed!</h2>
-                  <VideoListRendering
-                    videos={videos}           
-                    mode="add"                      
-                  />
+      {user? (
+        <>
+          <h2>Note: Only 6 results are displayed!</h2>
+            <VideoListRendering
+              videos={videos}           
+              mode="add"                      
+            />
+        </>
 
+      ): (<h2>Please log in to use this feature!</h2>)}
         </div>
   );
 }

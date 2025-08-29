@@ -26,6 +26,10 @@ export default function videoListRendering({
   const { activeProfile } = useProfiles();
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
+const isLoading =
+    (!videoList || videoList.length === 0) &&
+    (!videos || videos.length === 0);
+
   const renderVideoCard = (video: Video) => (
     <div key={video.id} className="video-card">
       <div>
@@ -53,6 +57,15 @@ export default function videoListRendering({
       )}
     </div>
   );
+
+  if (isLoading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p>Content is loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="video-list-rendering">

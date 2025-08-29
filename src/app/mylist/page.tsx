@@ -6,17 +6,18 @@ import '../main.css';
 
 
 export default function MyListPage() {
-  const { activeProfile } = useProfiles();
+  const { activeProfile, user } = useProfiles();
   const videos = activeProfile?.myList || [];
 
   return (
     <div className="main-content">
-      <h1>Meine Liste</h1>
-
+      <h1>My List</h1>
+      {user? (
           <VideoListRendering
             videos={videos}           
             mode="remove"                      
           />
+      ): (<p>Please log in to use this feature!</p>)}
     </div>
   );
 }

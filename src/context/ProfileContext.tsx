@@ -5,6 +5,7 @@ import { collection, doc, getDoc, onSnapshot } from "firebase/firestore";
 import { database } from "@/lib/firebase"; 
 import { useAuth } from "@/hooks/useAuth"; 
 import { Profile } from '@/types/interface';
+import './loading.css';
 
 type ProfileContextType = {
   profiles: Profile[];
@@ -16,14 +17,12 @@ type ProfileContextType = {
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
 export function ProfileProvider({ children }: { children: ReactNode }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [activeProfile, setActiveProfile] = useState<Profile | null>(null);
 
   useEffect(() => {
-    if (!user) {
-      return;
-    };
+    if (!user) return;
 
     const profilesRef = collection(database, "users", user.uid, "profiles");
     const unsub = onSnapshot(profilesRef, async (snapshot) => {
@@ -43,6 +42,13 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
 
     return () => unsub();
   }, [user]);
+
+    if (loading) {
+    return <div className="loading-screen">
+              <div className="spinner"></div>
+              <p className="loading-text">Loading User...</p>
+           </div>; 
+  }
 
   return (
     <ProfileContext.Provider value={{ profiles, activeProfile, setActiveProfile, user }}>

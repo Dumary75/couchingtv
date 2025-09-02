@@ -92,63 +92,74 @@ async function handleDelete(profileId: string) {
       <h1>Your profile area</h1>
 
       {profiles.map((profile) => (
-        <div key={profile.id} className="profile-card">
-          {editingNameId === profile.id ? (
-        <div className="name-edit">
-          <input
-            type="text"
-            value={draftName}
-            onChange={(e) => setDraftName(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") saveName(profile.id);
-              if (e.key === "Escape") cancelEditName();
-            }}
-            autoFocus
-          />
-          <button className="primary" onClick={() => saveName(profile.id)}>Save</button>
-          <button className="secondary" onClick={cancelEditName}>Cancel</button>
+  <div key={profile.id} className="profile-card">
+    <div className="name-container">
+      <div className="name-actions">
+        
+        {/* Namensanzeige oder Input-Feld */}
+        <div className="name-display-wrapper">
+          <span className={`name-text ${editingNameId === profile.id ? 'hidden' : 'visible'}`}>
+            Name: {profile.name}
+          </span>
+          <div className={`name-edit-field ${editingNameId === profile.id ? 'visible' : 'hidden'}`}>
+            <input
+              type="text"
+              value={draftName}
+              onChange={(e) => setDraftName(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") saveName(profile.id);
+                if (e.key === "Escape") cancelEditName();
+              }}
+              autoFocus={editingNameId === profile.id}
+            />
+          </div>
         </div>
-          ) : (
-            <div className="name-display">
-              <p>Name: {profile.name}</p>
-              <button className="primary" onClick={() => startEditName(profile)}>Edit</button>
-              <button className="danger" onClick={() => handleDelete(profile.id)}>Delete</button>
-            </div>
-          )}
 
-          {/* Avatar + Dropdown editing*/}
-          <img
-            src={profile.avatarUrl}
-            alt="Profil-Avatar"
-            className="avatar"
-            onClick={() => {
-              setDropdownOpen(true);
-              setEditingAvatarId(profile.id);
-            }}
-          />
-
-      <div className={`dropdown ${editingAvatarId === profile.id ? 'dropdownActive' : ''}`}>
-        {dropdownArray.map((avatar, index) => (
-          <img
-            key={index}
-            src={avatar}
-            alt={`Avatar ${index + 1}`}
-            className="avatar-option"
-            onClick={() => saveAvatar(avatar, profile.id)}
-          />
-        ))}
-        <button
-          className="danger dropdown-close"
-          onClick={() => setEditingAvatarId(null)}
-        >
-          Close
-        </button>
+        {/* Buttons: abhängig vom Zustand */}
+        {editingNameId === profile.id ? (
+          <>
+            <button className="primary" onClick={() => saveName(profile.id)}>Save</button>
+            <button className="secondary" onClick={cancelEditName}>Cancel</button>
+          </>
+        ) : (
+          <>
+            <button className="primary" onClick={() => startEditName(profile)}>Edit</button>
+            <button className="danger" onClick={() => handleDelete(profile.id)}>Delete</button>
+          </>
+        )}
       </div>
+    </div>
 
+    {/* Avatar + Dropdown */}
+    <img
+      src={profile.avatarUrl}
+      alt="Profil-Avatar"
+      className="avatar"
+      onClick={() => {
+        setDropdownOpen(true);
+        setEditingAvatarId(profile.id);
+      }}
+    />
 
-          <br />
-        </div>
+    <div className={`dropdown ${editingAvatarId === profile.id ? 'dropdownActive' : ''}`}>
+      {dropdownArray.map((avatar, index) => (
+        <img
+          key={index}
+          src={avatar}
+          alt={`Avatar ${index + 1}`}
+          className="avatar-option"
+          onClick={() => saveAvatar(avatar, profile.id)}
+        />
       ))}
+      <button
+        className="danger dropdown-close"
+        onClick={() => setEditingAvatarId(null)}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+))}
 
         <h1>Create Profile</h1>
         {profiles.length < 5 ? (
@@ -156,6 +167,7 @@ async function handleDelete(profileId: string) {
           ) : (
           <p>Maximum number of profiles reached (5).</p>
           )}
-    </div>
+          
+</div>
   );
 }

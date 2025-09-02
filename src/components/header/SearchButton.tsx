@@ -18,22 +18,22 @@ const startSearch = () => {
 
     return (
         <>
-            {showSearch ? 
-                <>
-                    <button onClick={startSearch} className="requestSender">Search</button>
+                    <button onClick={startSearch} className={`requestSender ${showSearch? 'ActiveSender' : ''}`}>Search</button>
                     <input
                     type="text"
                     value={query}
                     onChange={handleSearch}
                     placeholder="Search..."
-                    className="search-input"
+                    className={`search-input ${showSearch? 'ActiveSearchInput' : ''}`}
                     /> 
-                </>
-                : 
-                <button onClick={() => setShowSearch(true)} className="search-btn">
-                    Search 
-                </button>
-                }
+
+                    {/* Btn to start SearchInputfield etc. */}
+                    {showSearch? 
+                        '' :
+                    <button onClick={() => setShowSearch(true)} className="search-btn">
+                        Search 
+                    </button>              
+                    }
        </>
     );
 }

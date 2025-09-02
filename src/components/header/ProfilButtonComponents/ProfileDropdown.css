@@ -3,28 +3,17 @@
   display: inline-block;
 }
 
+.profile-dropdown-MOBILEversion{
+  position: relative;
+  display: none;
+}
+
 .profile-btn {
   background: none;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
-}
-
-.profile-btn .header-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.arrow {
-  margin-left: 5px;
-  transition: transform 0.2s ease;
-}
-
-.arrow.open {
-  transform: rotate(180deg);
 }
 
 .dropdown-list {
@@ -91,3 +80,14 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
+@media (max-width: 767px){
+
+.profile-dropdown-MOBILEversion{
+  display: inline-block;
+}
+
+.profile-dropdown{
+  display: none;
+}
+
+}

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useProfiles } from '@/context/ProfileContext';
+import './videoRendering.css';
 import AddToMyListButton from '@/app/search/AddToMyListButton';
 import RemoveFromMyListButton from '@/app/mylist/RemoveButton';
 import { Video } from '@/types/interface';

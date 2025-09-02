@@ -1,11 +1,10 @@
 
 import './globals.css';
-import '../components/HeaderFooter.css';
 import type { Metadata } from 'next';
 import { SignupProvider } from '../context/SignupContext';
 import { ProfileProvider } from '../context/ProfileContext';
 import AuthHeader from '@/components/header/AuthHeader';
-import Footer from '../components/Footer';
+import Footer from '../components/mainPage/Footer';
 
 export const metadata: Metadata = {
   title: 'CouchingTV',

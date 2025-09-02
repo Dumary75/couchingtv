@@ -4,6 +4,7 @@
 import { useAuth } from '../../hooks/useAuth';
 import PublicHeader from './PublicHeader';
 import PrivateHeader from './PrivateHeader';
+import './headerFooter.css';
 
 export default function AuthHeader() {
   const { user, loading } = useAuth();

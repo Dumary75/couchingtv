@@ -244,6 +244,7 @@
   outline: none;
   background-color: rgba(255, 255, 255, 0.9);
   color: #000;
+  margin-left: 0.5rem;
 
   /* Animation effect*/
   max-width: 0;
@@ -330,4 +331,154 @@
 
 .header-avatar:hover {
   border: 2px solid #fff; /* leichter Hover-Effekt */
+}
+
+/*===  Responsive Modes === */
+
+ /* Btn to show navbar or not */
+.MobileHeaderSET-Btn{
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+
+  width: 36px;
+  height: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 3rem;
+}
+
+.MobileHeaderSET-Btn span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+/* Obere Linie */
+.MobileHeaderSET-Btn span:nth-child(1) {
+  top: 0;
+}
+
+/* Mittlere Linie */
+.MobileHeaderSET-Btn span:nth-child(2) {
+  top: 11px;
+}
+
+/* Untere Linie */
+.MobileHeaderSET-Btn span:nth-child(3) {
+  bottom: 0;
+}
+
+
+/* iPhone 11, iPhone X, etc. (375px – 390px) */
+@media (max-width: 767px) {
+
+ 
+  .MobileHeaderSET-Btn{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+/* If the menu is open transform button to X */
+.MobileHeaderSET-Btn.mobile-active span:nth-child(1) {
+  top: 50%;
+  transform: rotate(45deg) translateY(-50%);
+  background-color: #e50914; 
+}
+
+.MobileHeaderSET-Btn.mobile-active span:nth-child(2) {
+  opacity: 0; 
+}
+
+.MobileHeaderSET-Btn.mobile-active span:nth-child(3) {
+  bottom: 50%;
+  transform: rotate(-45deg) translateY(50%);
+  background-color: #e50914;
+}
+
+
+ /* Header settings */
+  .mobile-active{
+    max-height: 40rem;
+  }
+
+  .mobile-deactive{
+    max-height: 5rem;
+  }
+
+
+  .couching-header {
+    padding: 20px;
+    flex-direction: column;
+    gap: 16px;
+    transition: all 0.5s;
+  }
+
+/* Navbar */
+  .mobile-nav-active {
+    opacity: 1;
+  }
+
+  .mobile-nav-deactive {
+    opacity: 0;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    transition: all  0.3s;
+    text-align: center;
+  }
+
+  .nav-link,
+  .search-btn,
+  .logout-btn {
+    width: 100%;
+    height: 4.5rem;
+    padding: 5%;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Avatar direkt unter dem Logo platzieren */
+  .header-avatar {
+    margin-top: 6px;
+  }
+
+  /* SearchButton: Button + Input als Block */
+  .mobile-search-disabled{
+    display: none;
+  }
+
+  .requestSender,
+  .search-input {
+    width: 100%;
+    max-width: none !important;
+    pointer-events: auto !important;
+    border-radius: 8px;
+    padding: 5%;
+    font-size: 1.5rem
+  }
+
+  .requestSender {
+    margin-bottom: 8px;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .search-input {
+    border-radius: 0 0 8px 8px;
+    background-color: #fff;
+    color: #000;
+    margin-bottom: 12px;
+      margin-left: 0rem;
+  }
 }

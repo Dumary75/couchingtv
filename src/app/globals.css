@@ -1,6 +1,4 @@
 
-
-/* HeaderFooter.css */
 body, html {
   margin: 0;
   padding: 0;
@@ -14,11 +12,10 @@ body {
 }
 
 main {
-  flex: 1; /* nimmt den verfügbaren Platz zwischen Header und Footer ein */
+  flex: 1; /* For security reasons, if the main content is too small */
 }
 
-
-/* === Signup-Seiten (gemeinsam) === */
+/* === Signup-sites / Process === */
 .signup-page, .plan-page, .profile-page, .welcome-page {
   max-width: 600px;
   margin: 15rem auto 15rem;
@@ -32,7 +29,7 @@ main {
   color: #fff;
 }
 
-/* === Passwort-Seite === */
+/* === Password-Site === */
 .signup-page input {
   width: 100%;
   padding: 15px;
@@ -57,7 +54,7 @@ main {
   cursor: pointer;
 }
 
-/* === Plan-Seite === */
+/* === Plan-Site === */
 .plan-card {
   background: #1a1a1a;
   border: 1px solid #333;
@@ -87,7 +84,7 @@ main {
   cursor: pointer;
 }
 
-/* === Profil-Seite === */
+/* === Profil-Site === */
 .profile-page input {
   width: 100%;
   padding: 15px;
@@ -122,7 +119,7 @@ main {
   margin: 10px 0;
 }
 
-/* === Willkommensseite === */
+/* === Welcome-Site === */
 .welcome-page {
   text-align: center;
 }
@@ -169,7 +166,7 @@ main {
   margin-bottom: 30px;
 }
 
-/* E-Mail Formular */
+/* E-Mail Form */
 .email-form {
   display: flex;
   flex-direction: column;
@@ -218,55 +215,4 @@ main {
   background-color: #f40612;
 } 
 
-/* Addto List Button */
-.add-to-mylist-btn {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ff4f5a;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 6px 12px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 0.85rem;
-  transition: all(0.2s ease);
-  margin-top: 1rem;
-  opacity: 0;
-}
 
-.add-to-mylist-btn:hover {
-  background-color: #ff6b74;
-  transform: translateX(-50%) translateY(-2px);
-}
-
-/* Remove from List Button */
-.remove-from-mylist-btn {
-  background-color: #000; /* helles Rot für Warnung */
-  color: #d32f2f; /* kräftiges Rot für Text */
-  border: 1px solid #d32f2f;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: background-color 0.2s, transform 0.1s;
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-}
-
-.remove-from-mylist-btn:hover {
-  background-color: #ffd6d6; /* leicht dunkleres Rot */
-  transform: translateX(-50%) scale(1.05);
-}
-
-/* Change opacity from add / remove buttons */
-.video-card:hover .add-to-mylist-btn,
-.video-card:hover .remove-from-mylist-btn {
-  opacity: 1;
-}

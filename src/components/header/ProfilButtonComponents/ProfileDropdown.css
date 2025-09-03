@@ -1,3 +1,5 @@
+
+
 .profile-dropdown {
   position: relative;
   display: inline-block;
@@ -88,6 +90,29 @@
 
 .profile-dropdown{
   display: none;
+}
+
+
+  .dropdown-list {
+    position: fixed; 
+    top: 9rem; 
+    left: 0; 
+    width: 100vw; 
+    overflow-y: auto;
+    background: #1a1a1a;
+    padding: 20px;
+}
+
+.dropdown-avatar{
+  transform: scale(2);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.dropdown-edit{
+  transform: scale(1.5);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 }

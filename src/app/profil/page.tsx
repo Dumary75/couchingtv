@@ -6,34 +6,19 @@ import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { database, auth } from "@/lib/firebase";
 import { useAuth } from "@/hooks/useAuth";
 import CreateProfil from "./Createprofil";
+import Profilcard from './ProfileCard';
 import { useProfiles } from '@/context/ProfileContext';
 import { Profile } from '@/types/interface';
 
 export default function Profil() {
   const { profiles, user } = useProfiles();
   const { loading } = useAuth();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [editingAvatarId, setEditingAvatarId] = useState<string | null>(null);
 
 
   // Name-Editing nur for ONE tile
   const [editingNameId, setEditingNameId] = useState<string | null>(null);
   const [draftName, setDraftName] = useState("");
-
-  const dropdownArray = [
-    "/avatars/avatar1.png",
-    "/avatars/avatar2.png",
-    "/avatars/avatar3.png",
-    "/avatars/avatar4.png",
-    "/avatars/avatar5.png",
-    "/avatars/avatar12.png",
-    "/avatars/avatar7.png",
-    "/avatars/avatar8.png",
-    "/avatars/avatar9.png",
-    "/avatars/avatar10.png",
-    "/avatars/avatar11.png",
-    "/avatars/avatar6.png"
-  ];
 
   if (loading) return <p>Loading User...</p>;
   if (!user) return <p>Please log in first</p>;
@@ -92,74 +77,20 @@ async function handleDelete(profileId: string) {
       <h1>Your profile area</h1>
 
       {profiles.map((profile) => (
-  <div key={profile.id} className="profile-card">
-    <div className="name-container">
-      <div className="name-actions">
-        
-        {/* Namensanzeige oder Input-Feld */}
-        <div className="name-display-wrapper">
-          <span className={`name-text ${editingNameId === profile.id ? 'hidden' : 'visible'}`}>
-            Name: {profile.name}
-          </span>
-          <div className={`name-edit-field ${editingNameId === profile.id ? 'visible' : 'hidden'}`}>
-            <input
-              type="text"
-              value={draftName}
-              onChange={(e) => setDraftName(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") saveName(profile.id);
-                if (e.key === "Escape") cancelEditName();
-              }}
-              autoFocus={editingNameId === profile.id}
-            />
-          </div>
-        </div>
-
-        {/* Buttons: abhängig vom Zustand */}
-        {editingNameId === profile.id ? (
-          <>
-            <button className="primary" onClick={() => saveName(profile.id)}>Save</button>
-            <button className="secondary" onClick={cancelEditName}>Cancel</button>
-          </>
-        ) : (
-          <>
-            <button className="primary" onClick={() => startEditName(profile)}>Edit</button>
-            <button className="danger" onClick={() => handleDelete(profile.id)}>Delete</button>
-          </>
-        )}
-      </div>
-    </div>
-
-    {/* Avatar + Dropdown */}
-    <img
-      src={profile.avatarUrl}
-      alt="Profil-Avatar"
-      className="avatar"
-      onClick={() => {
-        setDropdownOpen(true);
-        setEditingAvatarId(profile.id);
-      }}
-    />
-
-    <div className={`dropdown ${editingAvatarId === profile.id ? 'dropdownActive' : ''}`}>
-      {dropdownArray.map((avatar, index) => (
-        <img
-          key={index}
-          src={avatar}
-          alt={`Avatar ${index + 1}`}
-          className="avatar-option"
-          onClick={() => saveAvatar(avatar, profile.id)}
+        <Profilcard
+          profile={profile}
+          draftName={draftName}
+          editingNameId={editingNameId}
+          setDraftName={setDraftName}
+          saveName={saveName}
+          cancelEditName={cancelEditName}
+          startEditName={startEditName}
+          handleDelete={handleDelete}
+          setEditingAvatarId={setEditingAvatarId}
+          editingAvatarId={editingAvatarId}
+          saveAvatar={saveAvatar}
         />
-      ))}
-      <button
-        className="danger dropdown-close"
-        onClick={() => setEditingAvatarId(null)}
-      >
-        Close
-      </button>
-    </div>
-  </div>
-))}
+       ))}
 
         <h1>Create Profile</h1>
         {profiles.length < 5 ? (

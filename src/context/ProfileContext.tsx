@@ -12,6 +12,15 @@ type ProfileContextType = {
   activeProfile: Profile | null;
   setActiveProfile: (p: Profile | null) => void;
   user: any;
+
+  /* Things for MobileDropdown */
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+  toggleOpen: () => void;
+
+  mobileActive: boolean;
+  setMobileActive: (mobileActive: boolean) => void;
+  toggleMobilemenu: () => void;
 };
 
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
@@ -20,6 +29,17 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   const { user, loading } = useAuth();
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [activeProfile, setActiveProfile] = useState<Profile | null>(null);
+  /* Things for MobileDropdown */
+  const [isOpen, setIsOpen] = useState(false);
+  const [mobileActive, setMobileActive] = useState(false);
+
+  const toggleOpen = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  const toggleMobilemenu = () => {
+    setMobileActive((prev) => !prev);
+  };
 
   useEffect(() => {
     if (!user) return;
@@ -51,7 +71,7 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <ProfileContext.Provider value={{ profiles, activeProfile, setActiveProfile, user }}>
+    <ProfileContext.Provider value={{ profiles, activeProfile, setActiveProfile, user, isOpen, setIsOpen, toggleOpen, mobileActive, setMobileActive, toggleMobilemenu}}>
       {children}
     </ProfileContext.Provider>
   );

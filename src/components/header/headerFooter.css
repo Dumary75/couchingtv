@@ -402,18 +402,17 @@
   background-color: #e50914;
 }
 
-
- /* Header settings */
-  .mobile-active{
+/* Header settings */
+.mobile-active{
     max-height: 40rem;
-  }
+}
 
-  .mobile-deactive{
+.mobile-deactive{
     max-height: 9rem;
-  }
+}
 
 
-  .couching-header {
+.couching-header {
     padding: 20px;
     flex-direction: column;
     gap: 16px;
@@ -423,64 +422,97 @@
 /* Navbar */
   .mobile-nav-active {
     opacity: 1;
-  }
+}
 
-  .mobile-nav-deactive {
+.mobile-nav-deactive {
     opacity: 0;
-  }
+}
 
-  .main-nav {
+.main-nav {
     display: flex;
     flex-direction: column;
     gap: 12px;
     width: 100%;
     transition: all  0.3s;
     text-align: center;
-  }
+}
 
-  .nav-link,
-  .search-btn,
-  .logout-btn {
+.nav-link,
+.search-btn,
+.logout-btn {
     width: 100%;
     height: 4.5rem;
     padding: 5%;
     font-size: 1.5rem;
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.08);
-  }
+}
 
   /* Avatar direkt unter dem Logo platzieren */
-  .header-avatar {
+.header-avatar {
     margin-top: 0.9rem;
     margin-left: 2rem;
     transform: scale(1.3);
-  }
+}
 
   /* SearchButton: Button + Input als Block */
-  .mobile-search-disabled{
+.mobile-search-disabled{
     display: none;
-  }
+}
 
-  .requestSender,
-  .search-input {
+.requestSender,
+.search-input {
     width: 100%;
     max-width: none !important;
     pointer-events: auto !important;
     border-radius: 8px;
     padding: 5%;
     font-size: 1.5rem
-  }
+}
 
-  .requestSender {
+.requestSender {
     margin-bottom: 8px;
     border-radius: 8px 8px 0 0;
-  }
+}
 
-  .search-input {
+.search-input {
     border-radius: 0 0 8px 8px;
     background-color: #fff;
     color: #000;
     margin-bottom: 12px;
-      margin-left: 0rem;
-  }
+    margin-left: 0rem;
+}
+
+/* Header if user is not logged in MOBILversion */
+
+.login-form{
+    margin-top: 4rem;
+    width: 100%;
+    right: 0;
+    background-color: #000;
+    border-bottom: 0.1rem solid #FFF;
+}
+
+.login-input {
+  height: 4rem;
+  font-size: 2rem;
+}
+
+.login-btn,
+.signin-btn {
+  height: 3rem;
+  font-size: 1.5rem;
+}
+
+.cancel-btn,
+.forgot-password-btn{
+  height: 3rem;
+  font-size: 1.5rem;
+  background-color: #252222;
+}
+
+.error-message{
+  font-size: 2rem;
+}
+
 }

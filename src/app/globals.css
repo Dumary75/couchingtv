@@ -15,6 +15,11 @@ main {
   flex: 1; /* For security reasons, if the main content is too small */
 }
 
+/* If the HeaderMenu on Mobile is open */
+.BlurryMode{
+  filter: blur(0.5rem);
+}
+
 /* === Signup-sites / Process === */
 .signup-page, .plan-page, .profile-page, .welcome-page {
   max-width: 600px;

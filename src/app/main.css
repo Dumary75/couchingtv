@@ -184,7 +184,24 @@ body {
   margin: 0;
 }
 
-@media (max-width: 767px){
+@media (max-width: 767px) {
+
+.main-content {
+    max-width: none;       
+    margin: 0;             
+    width: 100%;
+}
+
+.main-content h1,
+.subtitle,
+.cta-text {
+  font-size: 1.7rem;
+}
+
+.email-form{
+  margin-top: 10rem;
+  width: 100%;
+}
 
 
 

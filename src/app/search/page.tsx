@@ -15,7 +15,7 @@ interface Video {
 export default function SearchPage() {
 const [videos, setVideos] = useState<Video[]>([]);
 const searchParams = useSearchParams();
-const { user } = useProfiles();
+const { user, isOpen, mobileActive  } = useProfiles();
      
 useEffect(() => {
   
@@ -42,7 +42,7 @@ useEffect(() => {
 
 
   return (
-       <div className='main-content'>
+       <div className={`main-content ${isOpen ? 'BlurryMode' : ''} ${mobileActive ? 'BlurryMode' : ''}`}>
       {user? (
         <>
           <h2>Note: Only 6 results are displayed!</h2>

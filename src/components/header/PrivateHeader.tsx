@@ -7,12 +7,19 @@ import { auth } from '../../lib/firebase';
 import SearchButton from "./SearchButton";
 import Profil_inHeader from "./Profil_inHeader";
 import Profi_inHeader_MOBILE from './Profil_inHeader_MOBILE';
+import { useProfiles } from '@/context/ProfileContext';
 
 
 export default function PrivateHeader() {
 const[mobileActive, setMobileActive] = useState(false);
+const { toggleMobilemenu } = useProfiles();
 
   const handleLogout = () => signOut(auth);
+
+  const mobileMenuHandler = () => {
+    setMobileActive((oldstate) => !oldstate);
+    toggleMobilemenu();
+  }
 
 
   return (
@@ -20,7 +27,7 @@ const[mobileActive, setMobileActive] = useState(false);
       <div className="logo">
         <a href='/'>COUCHING TV</a> 
             <div className='Mobile-Header_btns'>
-              <button className={`MobileHeaderSET-Btn ${mobileActive? 'mobile-active' : ''}`} onClick={() => setMobileActive((oldstate) => !oldstate)}>
+              <button className={`MobileHeaderSET-Btn ${mobileActive? 'mobile-active' : ''}`} onClick={mobileMenuHandler}>
                   <span></span>
                   <span></span>
                   <span></span>

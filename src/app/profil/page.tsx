@@ -11,7 +11,7 @@ import { useProfiles } from '@/context/ProfileContext';
 import { Profile } from '@/types/interface';
 
 export default function Profil() {
-  const { profiles, user } = useProfiles();
+  const { profiles, user, isOpen, mobileActive } = useProfiles();
   const { loading } = useAuth();
   const [editingAvatarId, setEditingAvatarId] = useState<string | null>(null);
 
@@ -73,7 +73,7 @@ async function handleDelete(profileId: string) {
 
 
   return (
-    <div className="main-content">
+    <div className={`main-content ${isOpen ? 'BlurryMode' : ''} ${mobileActive ? 'BlurryMode' : ''}`}>
       <h1>Your profile area</h1>
 
       {profiles.map((profile) => (

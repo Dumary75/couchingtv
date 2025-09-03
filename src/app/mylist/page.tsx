@@ -6,11 +6,11 @@ import '../main.css';
 
 
 export default function MyListPage() {
-  const { activeProfile, user } = useProfiles();
+  const { activeProfile, user, isOpen, mobileActive  } = useProfiles();
   const videos = activeProfile?.myList || [];
 
   return (
-    <div className="main-content">
+    <div className={`main-content ${isOpen ? 'BlurryMode' : ''} ${mobileActive ? 'BlurryMode' : ''}`}>
       <h1>My List</h1>
       {user? (
           <VideoListRendering

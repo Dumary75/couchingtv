@@ -1,6 +1,5 @@
 
 import { database } from '../../lib/firebase';
-import { useState } from "react";
 import { doc, updateDoc } from "firebase/firestore";
 import { useRouter } from 'next/navigation';
 import ProfileDropdown from "./ProfilButtonComponents/ProfileDropdown";
@@ -35,7 +34,7 @@ export default function Profil() {
           onClick={toggleOpen}
         />
       ) : (
-        <button className="nav-link" onClick={toggleOpen}>Profil</button>
+        <button className="nav-link" onClick={toggleOpen} type='button'>Profil</button>
       )}
 
         <ProfileDropdown

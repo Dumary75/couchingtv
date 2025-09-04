@@ -6,7 +6,15 @@ import '../main.css';
 
 
 export default function MyListPage() {
-  const { activeProfile, user, isOpen, mobileActive  } = useProfiles();
+  const { activeProfile, user, isOpen, mobileActive, loading } = useProfiles();
+
+  if (loading) {
+    return <div className="loading-screen">
+              <div className="spinner"></div>
+              <p className="loading-text">Loading User...</p>
+           </div>; 
+  }
+
   const videos = activeProfile?.myList || [];
 
   return (

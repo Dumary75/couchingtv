@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../lib/firebase';
 
@@ -11,13 +10,11 @@ import { useProfiles } from '@/context/ProfileContext';
 
 
 export default function PrivateHeader() {
-const[mobileActive, setMobileActive] = useState(false);
-const { toggleMobilemenu } = useProfiles();
+const { toggleMobilemenu, mobileActive, setMobileActive } = useProfiles();
 
   const handleLogout = () => signOut(auth);
 
   const mobileMenuHandler = () => {
-    setMobileActive((oldstate) => !oldstate);
     toggleMobilemenu();
   }
 
@@ -27,7 +24,7 @@ const { toggleMobilemenu } = useProfiles();
       <div className="logo">
         <a href='/'>COUCHING TV</a> 
             <div className='Mobile-Header_btns'>
-              <button className={`MobileHeaderSET-Btn ${mobileActive? 'mobile-active' : ''}`} onClick={mobileMenuHandler}>
+              <button className={`MobileHeaderSET-Btn ${mobileActive? 'mobile-active' : ''}`} onClick={mobileMenuHandler} type='button'>
                   <span></span>
                   <span></span>
                   <span></span>
@@ -42,7 +39,7 @@ const { toggleMobilemenu } = useProfiles();
         <SearchButton />
         <a href="/mylist" className="nav-link">My List</a>
         <Profil_inHeader />
-        <button onClick={handleLogout} className="logout-btn">Logout</button>
+        <button onClick={handleLogout} className="logout-btn" type='button'>Logout</button>
       </nav>
     </header>
   );

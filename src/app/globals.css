@@ -171,22 +171,6 @@ main {
   margin-bottom: 30px;
 }
 
-/* E-Mail Form */
-.email-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-@media (min-width: 600px) {
-  .email-form {
-    flex-direction: row;
-  }
-}
-
 .email-input {
   flex: 1;
   padding: 16px;
@@ -216,8 +200,13 @@ main {
   white-space: nowrap;
 }
 
+
+/* HoverEffects for bigger screens */
+@media (min-width: 1280px) {
+
 .start-btn:hover {
   background-color: #f40612;
 } 
 
+}
 

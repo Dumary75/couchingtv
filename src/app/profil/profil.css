@@ -35,10 +35,6 @@ h1{
   transition: transform 0.2s;
 }
 
-.profile-card:hover {
-  transform: translateY(-3px);
-}
-
 /* ============ Name + Aktionen ============ */
 .name-container {
   display: flex;
@@ -116,16 +112,6 @@ button {
   transition: all 0.2s;
 }
 
-/* neutrales Design */
-button.default {
-  background: #3a3a3a;
-  color: #f5f5f5;
-}
-
-button.default:hover {
-  background: #505050;
-}
-
 /* Primary → Save, Edit */
 button.primary {
   background: #3b82f6;
@@ -136,18 +122,10 @@ input{
   margin-right: 1rem;
 }
 
-button.primary:hover {
-  background: #2563eb;
-}
-
 /* Danger → Delete, Close */
 button.danger {
   background: #ef4444;
   color: white;
-}
-
-button.danger:hover {
-  background: #dc2626;
 }
 
 /* Secondary → Cancel */
@@ -155,10 +133,6 @@ button.secondary {
   margin-left: 0.5rem;
   background: #6b7280;
   color: white;
-}
-
-button.secondary:hover {
-  background: #4b5563;
 }
 
 /* ============ Avatar (Trigger) ============ */
@@ -170,11 +144,6 @@ button.secondary:hover {
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   margin-top: 1rem;
-}
-
-.avatar:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
 }
 
 /* ============ Dropdown mit Avataren ============ */
@@ -214,11 +183,6 @@ button.secondary:hover {
   transition: all 0.2s;
 }
 
-.avatar-option:hover {
-  transform: scale(1.15);
-  border-color: #3b82f6;
-}
-
 /* Close Button mittig */
 .dropdown-close {
   grid-column: 1 / -1; /* nimmt die ganze Breite ein */
@@ -241,33 +205,43 @@ button[type="submit"] {
   margin-top: 0.5rem;
 }
 
-/* Hover-Effekt */
+/* ============ Responsive ============ */
+
+
+/* HoverEffects for bigger screens */
+@media (min-width: 1280px) {
+
+.profile-card:hover {
+  transform: translateY(-3px);
+}
+
+button.primary:hover {
+  background: #2563eb;
+}
+
+button.danger:hover {
+  background: #dc2626;
+}
+
+button.secondary:hover {
+  background: #4b5563;
+}
+
+.avatar:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+}
+
+.avatar-option:hover {
+  transform: scale(1.15);
+  border-color: #3b82f6;
+}
+
 button[type="submit"]:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   background: linear-gradient(135deg, #4338ca, #2563eb);
 }
 
-/* ============ Responsive ============ */
-@media (max-width: 600px) {
-  .profile-card {
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-  }
 
-  .name-display {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .dropdown {
-    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
-    max-width: 220px;
-  }
-
-  .avatar {
-    width: 64px;
-    height: 64px;
-  }
 }

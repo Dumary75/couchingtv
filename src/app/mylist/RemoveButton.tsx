@@ -28,7 +28,7 @@ export default function RemoveFromMyListButton({ video, activeProfileId }: Props
   };
 
   return (
-    <button onClick={handleRemove} className="remove-from-mylist-btn">
+    <button type="button" onClick={handleRemove} className="remove-from-mylist-btn">
       Remove from My List
     </button>
   );

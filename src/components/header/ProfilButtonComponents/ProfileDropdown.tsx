@@ -36,7 +36,7 @@ const ProfileDropdown = ({
           onClick={() => handleSelect(profile)}
         />
       ))}
-      <button className="dropdown-edit" onClick={onEditProfiles}>
+      <button className="dropdown-edit" onClick={onEditProfiles} type="button">
         ⚙️ <br />
         Edit Profile
       </button>

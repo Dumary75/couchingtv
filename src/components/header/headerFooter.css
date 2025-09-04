@@ -96,10 +96,6 @@
   cursor: pointer;
 }
 
-.login-btn:hover {
-  background-color: #f40612;
-}
-
 .login-btn:disabled {
   background-color: #666;
   cursor: not-allowed;
@@ -112,10 +108,6 @@
   padding: 8px;
   font-size: 12px;
   cursor: pointer;
-}
-
-.cancel-btn:hover {
-  color: white;
 }
 
 .error-message {
@@ -136,10 +128,6 @@
   transition: color 0.2s ease;
 }
 
-.forgot-password-btn:hover {
-  color: #fff;
-}
-
 /* Private Header styles */
 
 .couching-header.logged-in {
@@ -155,10 +143,6 @@
   cursor: pointer;
   font-size: 14px;
   margin-left: 10px;
-}
-
-.logout-btn:hover {
-  background: #e50914;
 }
 
 .main-nav {
@@ -178,12 +162,6 @@
   transition: color 0.3s;
 }
 
-.nav-link:hover {
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-
 /* If no search input is shown */
 .search-btn {
   color: #e5e5e5;
@@ -196,11 +174,6 @@
   background: none;
   border: none;
   cursor: pointer;
-}
-
-.search-btn:hover {
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* To start the search request */
@@ -222,11 +195,6 @@
   max-width: 0;
   opacity: 0;
   pointer-events: none;
-}
-
-.requestSender:hover {
-  background-color: #f40612;
-  transform: scale(1.05);
 }
 
 .ActiveSender{
@@ -276,19 +244,11 @@
   margin-bottom: 12px;
 }
 
-.couching-footer a:hover {
-  text-decoration: underline;
-}
-
 .footer-phone-link {
   color: #757575;
   text-decoration: none;
   margin-bottom: 30px;
   display: block;
-}
-
-.footer-phone-link:hover {
-  text-decoration: underline;
 }
 
 .footer-links {
@@ -379,7 +339,6 @@
 /* iPhone 11, iPhone X, etc. (375px – 390px) */
 @media (max-width: 767px) {
 
- 
 .MobileHeaderSET-Btn{
     opacity: 1;
     pointer-events: auto;
@@ -513,6 +472,50 @@
 
 .error-message{
   font-size: 2rem;
+}
+
+}
+
+/* HoverEffects for bigger screens */
+@media (min-width: 1280px) {
+
+.login-btn:hover {
+  background-color: #f40612;
+}
+
+.cancel-btn:hover {
+  color: white;
+}
+
+.forgot-password-btn:hover {
+  color: #fff;
+}
+
+.logout-btn:hover {
+  background: #e50914;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.search-btn:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.requestSender:hover {
+  background-color: #f40612;
+  transform: scale(1.05);
+}
+
+.couching-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-phone-link:hover {
+  text-decoration: underline;
 }
 
 }

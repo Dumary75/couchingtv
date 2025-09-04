@@ -108,9 +108,7 @@ body {
   white-space: nowrap;
 }
 
-.start-btn:hover {
-  background-color: #f40612;
-}
+
 
 /* FAQ Section */
 .faq-section {
@@ -158,10 +156,6 @@ body {
   outline: none;
 }
 
-.faq-question:hover {
-  color: #b3b3b3;
-}
-
 .faq-icon {
   font-size: 24px;
   transition: transform 0.3s ease;
@@ -184,6 +178,9 @@ body {
   margin: 0;
 }
 
+/* === Responsive Querrys === */
+
+/* Mobileversion */
 @media (max-width: 767px) {
 
 .main-content {
@@ -203,7 +200,17 @@ body {
   width: 100%;
 }
 
+}
+/* HoverEffects for bigger screens */
+@media (min-width: 1280px) {
 
+.start-btn:hover {
+  background-color: #f40612;
+}
+
+.faq-question:hover {
+  color: #b3b3b3;
+}
 
 
 }

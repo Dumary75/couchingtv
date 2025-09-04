@@ -4,15 +4,13 @@ import "./profil.css";
 import { useState } from "react";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { database, auth } from "@/lib/firebase";
-import { useAuth } from "@/hooks/useAuth";
 import CreateProfil from "./Createprofil";
 import Profilcard from './ProfileCard';
 import { useProfiles } from '@/context/ProfileContext';
 import { Profile } from '@/types/interface';
 
 export default function Profil() {
-  const { profiles, user, isOpen, mobileActive } = useProfiles();
-  const { loading } = useAuth();
+  const { profiles, user, isOpen, mobileActive, loading } = useProfiles();
   const [editingAvatarId, setEditingAvatarId] = useState<string | null>(null);
 
 
@@ -20,7 +18,15 @@ export default function Profil() {
   const [editingNameId, setEditingNameId] = useState<string | null>(null);
   const [draftName, setDraftName] = useState("");
 
-  if (loading) return <p>Loading User...</p>;
+  
+
+  if (loading) {
+    return <div className="loading-screen">
+              <div className="spinner"></div>
+              <p className="loading-text">Loading User...</p>
+           </div>; 
+  }
+
   if (!user) return <p>Please log in first</p>;
 
   // Save Avatar
@@ -76,8 +82,9 @@ async function handleDelete(profileId: string) {
     <div className={`main-content ${isOpen ? 'BlurryMode' : ''} ${mobileActive ? 'BlurryMode' : ''}`}>
       <h1>Your profile area</h1>
 
-      {profiles.map((profile) => (
+      {profiles.map((profile, index) => (
         <Profilcard
+          key={index}
           profile={profile}
           draftName={draftName}
           editingNameId={editingNameId}

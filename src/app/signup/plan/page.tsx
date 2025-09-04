@@ -18,7 +18,7 @@ export default function PlanPage() {
       <h2>Choose your plan</h2>
       <div className="plan-card">
         <h3>Free membership!</h3>
-        <button onClick={handleSelectPlan}>Select</button>
+        <button type='button' onClick={handleSelectPlan}>Select</button>
       </div>
     </div>
   );

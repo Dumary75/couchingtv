@@ -38,7 +38,7 @@ export default function AddToMyListButton({ video, activeProfileId, myList }: Pr
   };
 
   return (
-    <button onClick={handleAdd} className="add-to-mylist-btn">
+    <button type="button" onClick={handleAdd} className="add-to-mylist-btn">
       Add to my List
     </button>
   );

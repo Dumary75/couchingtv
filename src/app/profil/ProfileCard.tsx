@@ -72,13 +72,13 @@ export default function Profilcard({
                         {/* Buttons: abhängig vom Zustand */}
                         {editingNameId === profile.id ? (
                         <>
-                            <button className="primary" onClick={() => saveName(profile.id)}>Save</button>
-                            <button className="secondary" onClick={cancelEditName}>Cancel</button>
+                            <button type='button' className="primary" onClick={() => saveName(profile.id)}>Save</button>
+                            <button type='button' className="secondary" onClick={cancelEditName}>Cancel</button>
                         </>
                         ) : (
                         <>
-                            <button className="primary" onClick={() => startEditName(profile)}>Edit</button>
-                            <button className="danger" onClick={() => handleDelete(profile.id)}>Delete</button>
+                            <button type='button' className="primary" onClick={() => startEditName(profile)}>Edit</button>
+                            <button type='button' className="danger" onClick={() => handleDelete(profile.id)}>Delete</button>
                         </>
                         )}
                     </div>
@@ -105,6 +105,7 @@ export default function Profilcard({
                         />
                     ))}
                     <button
+                        type='button' 
                         className="danger dropdown-close"
                         onClick={() => setEditingAvatarId(null)}
                     >

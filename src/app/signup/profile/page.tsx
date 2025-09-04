@@ -67,6 +67,7 @@ export default function ProfilePage() {
         onClick={handleCreateAccount} 
         disabled={loading}
         className="create-account-btn"
+        type='button'
       >
         {loading ? 'Creating Account...' : 'Account create'}
       </button>

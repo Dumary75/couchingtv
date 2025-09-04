@@ -1,13 +1,13 @@
 
 'use client';
 
-import { useAuth } from '../../hooks/useAuth';
+import { useProfiles } from '@/context/ProfileContext';
 import PublicHeader from './PublicHeader';
 import PrivateHeader from './PrivateHeader';
 import './headerFooter.css';
 
 export default function AuthHeader() {
-  const { user, loading } = useAuth();
+  const { user, loading } = useProfiles();
 
   if (loading) {
     return <div className="header-loading">Loading...</div>;

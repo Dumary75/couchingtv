@@ -12,12 +12,12 @@ type ProfileContextType = {
   activeProfile: Profile | null;
   setActiveProfile: (p: Profile | null) => void;
   user: any;
+  loading: boolean; 
 
-  /* Things for MobileDropdown */
+  /* Mobile Menu */
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   toggleOpen: () => void;
-
   mobileActive: boolean;
   setMobileActive: (mobileActive: boolean) => void;
   toggleMobilemenu: () => void;
@@ -26,20 +26,15 @@ type ProfileContextType = {
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
 export function ProfileProvider({ children }: { children: ReactNode }) {
-  const { user, loading } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [activeProfile, setActiveProfile] = useState<Profile | null>(null);
-  /* Things for MobileDropdown */
+
   const [isOpen, setIsOpen] = useState(false);
   const [mobileActive, setMobileActive] = useState(false);
 
-  const toggleOpen = () => {
-    setIsOpen((prev) => !prev);
-  };
-
-  const toggleMobilemenu = () => {
-    setMobileActive((prev) => !prev);
-  };
+  const toggleOpen = () => setIsOpen((prev) => !prev);
+  const toggleMobilemenu = () => setMobileActive((prev) => !prev);
 
   useEffect(() => {
     if (!user) return;
@@ -63,15 +58,22 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
     return () => unsub();
   }, [user]);
 
-    if (loading) {
-    return <div className="loading-screen">
-              <div className="spinner"></div>
-              <p className="loading-text">Loading User...</p>
-           </div>; 
-  }
-
   return (
-    <ProfileContext.Provider value={{ profiles, activeProfile, setActiveProfile, user, isOpen, setIsOpen, toggleOpen, mobileActive, setMobileActive, toggleMobilemenu}}>
+    <ProfileContext.Provider
+      value={{
+        profiles,
+        activeProfile,
+        setActiveProfile,
+        user,
+        loading: authLoading, 
+        isOpen,
+        setIsOpen,
+        toggleOpen,
+        mobileActive,
+        setMobileActive,
+        toggleMobilemenu,
+      }}
+    >
       {children}
     </ProfileContext.Provider>
   );

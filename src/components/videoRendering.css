@@ -28,12 +28,6 @@ h1{
   padding-bottom: 50px;
 }
 
-.video-card:hover {
-  transform: scale(1.2);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  z-index: 2;
-}
-
 .video-card img {
   width: 100%;
   object-fit: cover;
@@ -98,15 +92,10 @@ h1{
   opacity: 0;
 }
 
-.add-to-mylist-btn:hover {
-  background-color: #ff6b74;
-  transform: translateX(-50%) translateY(-2px);
-}
-
 /* Remove from List Button */
 .remove-from-mylist-btn {
-  background-color: #000; /* helles Rot für Warnung */
-  color: #d32f2f; /* kräftiges Rot für Text */
+  background-color: #000; 
+  color: #d32f2f; 
   border: 1px solid #d32f2f;
   padding: 8px 12px;
   border-radius: 6px;
@@ -119,11 +108,6 @@ h1{
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
-}
-
-.remove-from-mylist-btn:hover {
-  background-color: #ffd6d6; /* leicht dunkleres Rot */
-  transform: translateX(-50%) scale(1.05);
 }
 
 /* Change opacity from add / remove buttons */
@@ -144,15 +128,52 @@ h1{
   .add-to-mylist-btn,
   .remove-from-mylist-btn {
     opacity: 1;
-
-    /* Entferne deine alte Zentrierungslogik */
     position: static;
     margin: 0 auto;
-    
-    /* Setze den Button auf Block-Ebene, damit Margin funktioniert */
     display: block; 
-    
-    /* Skalierung kannst du beibehalten, falls gewünscht */
     transform: scale(1.4);
   }
+
+  .video-thumbnail-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.video-thumbnail-btn img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.video-thumbnail-btn:hover img {
+  transform: scale(1.02);
+}
+
+}
+
+
+/* HoverEffects for bigger screens */
+@media (min-width: 1280px) {
+
+.video-card:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.add-to-mylist-btn:hover {
+  background-color: #ff6b74;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.remove-from-mylist-btn:hover {
+  background-color: #ffd6d6; 
+  transform: translateX(-50%) scale(1.05);
+}
+
 }

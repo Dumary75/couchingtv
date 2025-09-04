@@ -21,6 +21,7 @@ export default function FAQItem({ question, children }: FAQItemProps) {
         className={`faq-question ${isOpen ? 'open' : ''}`}
         onClick={toggle}
         aria-expanded={isOpen}
+        type='button'
       >
         {question}
         <span className="faq-icon">{isOpen ? '-' : '+'}</span>

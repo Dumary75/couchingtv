@@ -19,7 +19,7 @@ const startSearch = () => {
     return (
         <>
                     <div className={` ${showSearch? '' : 'mobile-search-disabled'}`}>
-                        <button onClick={startSearch} className={`requestSender ${showSearch? 'ActiveSender' : ''}`}>Search</button>
+                        <button type='button' onClick={startSearch} className={`requestSender ${showSearch? 'ActiveSender' : ''}`}>Search</button>
                         <input
                         type="text"
                         value={query}
@@ -32,7 +32,7 @@ const startSearch = () => {
                     {/* Btn to start SearchInputfield etc. */}
                     {showSearch? 
                         '' :
-                    <button onClick={() => setShowSearch(true)} className="search-btn">
+                    <button type='button' onClick={() => setShowSearch(true)} className="search-btn">
                         Search 
                     </button>              
                     }

@@ -10,7 +10,7 @@ import { useProfiles } from '@/context/ProfileContext';
 
 
 export default function PrivateHeader() {
-const { toggleMobilemenu, mobileActive, setMobileActive } = useProfiles();
+const { toggleMobilemenu, mobileActive } = useProfiles();
 
   const handleLogout = () => signOut(auth);
 

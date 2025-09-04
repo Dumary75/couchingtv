@@ -82,9 +82,9 @@ async function handleDelete(profileId: string) {
     <div className={`main-content ${isOpen ? 'BlurryMode' : ''} ${mobileActive ? 'BlurryMode' : ''}`}>
       <h1>Your profile area</h1>
 
-      {profiles.map((profile, index) => (
+      {profiles.map((profile) => (
         <Profilcard
-          key={index}
+          key={profile.id}
           profile={profile}
           draftName={draftName}
           editingNameId={editingNameId}

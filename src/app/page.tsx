@@ -8,14 +8,7 @@ import UserloggedOUT from '@/components/mainPage/UserloggedOUT';
 
 
 export default function Home() {
-  const { user, loading } = useProfiles();
-
-if (loading) {
-    return <div className="loading-screen">
-              <div className="spinner"></div>
-              <p className="loading-text">Loading User...</p>
-           </div>; 
-  }
+  const { user } = useProfiles();
 
   return (
     <div className="couching-container">

@@ -15,15 +15,8 @@ interface Video {
 export default function SearchPage() {
 const [videos, setVideos] = useState<Video[]>([]);
 const searchParams = useSearchParams();
-const { user, isOpen, mobileActive, loading  } = useProfiles();
+const { user, isOpen, mobileActive } = useProfiles();
 
-if (loading) {
-    return <div className="loading-screen">
-              <div className="spinner"></div>
-              <p className="loading-text">Loading User...</p>
-           </div>; 
-}
-     
 useEffect(() => {
   const query = searchParams.get('query');
 

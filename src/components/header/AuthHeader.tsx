@@ -7,11 +7,7 @@ import PrivateHeader from './PrivateHeader';
 import './headerFooter.css';
 
 export default function AuthHeader() {
-  const { user, loading } = useProfiles();
-
-  if (loading) {
-    return <div className="header-loading">Loading...</div>;
-  }
+  const { user } = useProfiles();
 
   return user ? <PrivateHeader /> : <PublicHeader />;
 }

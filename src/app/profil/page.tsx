@@ -10,7 +10,7 @@ import { useProfiles } from '@/context/ProfileContext';
 import { Profile } from '@/types/interface';
 
 export default function Profil() {
-  const { profiles, user, isOpen, mobileActive, loading } = useProfiles();
+  const { profiles, user, isOpen, mobileActive } = useProfiles();
   const [editingAvatarId, setEditingAvatarId] = useState<string | null>(null);
 
 
@@ -20,12 +20,7 @@ export default function Profil() {
 
   
 
-  if (loading) {
-    return <div className="loading-screen">
-              <div className="spinner"></div>
-              <p className="loading-text">Loading User...</p>
-           </div>; 
-  }
+
 
   if (!user) return <p>Please log in first</p>;
 

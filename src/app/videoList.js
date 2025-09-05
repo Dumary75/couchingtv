@@ -25,7 +25,9 @@ export const videoList = [
     category: "Sport",
     videos: [
       { id: "Ed9eVUsVL7c", title: "TOP 20 Champions League Goals of 2024/2025" },
-      { id: "dIhfBFrA05Y", title: "Slovenia vs Great Britain Full Game Highlights - August 19, 2025" },
+
+      { id: "aTTOQtSOX3I", title: '"SuperHuman" Moments in Football"' },
+
       { id: "mfluwjIQ9yU", title: "UNDISPUTED KING – Oleksandr Usyk Is the Best Heavyweight of This Era" },
       { id: "Ude5Q2cLWuU", title: "$5 VS $1,000,000 Accessories NFL Players Wore" },
       { id: "NdrGI0YHS1E", title: "Dmitry Bivol vs Jackson Jr  Latest Boxing Highlights" },

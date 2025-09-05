@@ -42,7 +42,7 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    if (!user) return;
+    if (!user?.uid) return; 
 
     const profilesRef = collection(database, "users", user.uid, "profiles");
     const unsub = onSnapshot(profilesRef, async (snapshot) => {
@@ -61,7 +61,7 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
     });
 
     return () => unsub();
-  }, [user]);
+  }, [user?.uid]);
 
     if (loading) {
     return <div className="loading-screen">

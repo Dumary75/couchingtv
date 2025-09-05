@@ -19,7 +19,7 @@ interface Props {
   mode?: 'add' | 'remove'; // Determines which button is rendered
 }
 
-export default function videoListRendering({
+export default function VideoListRendering({
   videoList,
   videos,
   mode = 'add',

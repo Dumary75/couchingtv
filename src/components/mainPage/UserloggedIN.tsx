@@ -7,8 +7,8 @@ import { videoList } from '@/app/videoList';
 export default function UserLoggedIn() {
   const { isOpen, mobileActive } = useProfiles();
 
-  return (
-    <div className={`main-content ${isOpen ? 'BlurryMode' : ''} ${mobileActive ? 'BlurryMode' : ''}`}>
+return (
+    <div className={`main-content ${isOpen || mobileActive? 'BlurryMode' : ''}`}>
       <VideoListRendering videoList={videoList} mode="add" />
     </div>
   );

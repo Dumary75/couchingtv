@@ -50,7 +50,7 @@ export default function Profilcard({
                     <div className="name-container">
                     <div className="name-actions">
                         
-                        {/* Namensanzeige oder Input-Feld */}
+                        {/* Show name or Input-field */}
                         <div className="name-display-wrapper">
                         <span className={`name-text ${editingNameId === profile.id ? 'hidden' : 'visible'}`}>
                             Name: {profile.name}
@@ -69,7 +69,7 @@ export default function Profilcard({
                         </div>
                         </div>
 
-                        {/* Buttons: abhängig vom Zustand */}
+                        {/* Buttons: depending on State */}
                         {editingNameId === profile.id ? (
                         <>
                             <button type='button' className="primary" onClick={() => saveName(profile.id)}>Save</button>

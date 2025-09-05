@@ -1,14 +1,10 @@
 
-.logo {
-  color: #e50914;
-  font-size: 32px;
-  font-weight: 700;
-}
-
 .logo a {
   color: #e50914;
   text-decoration: none;
   list-style: none;
+  font-size: 32px;
+  font-weight: 700;
 }
 
 .couching-header {
@@ -26,13 +22,12 @@
 
 .signin-btn {
   background-color: #e50914;
-  color: white;
+  color: #FFF;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 4px;
   cursor: pointer;
-  pointer-events: all;
   transform: translateY(0);
   opacity: 1;
 }
@@ -59,6 +54,7 @@
   min-width: 250px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
 
+  /* Transition effect */
   opacity: 0;
   transform: translateY(-20px);
   pointer-events: none;
@@ -77,7 +73,7 @@
   border: 1px solid #333;
   border-radius: 4px;
   background: #333;
-  color: white;
+  color: #FFF;
   font-size: 14px;
 }
 
@@ -88,17 +84,12 @@
 
 .login-btn {
   background-color: #e50914;
-  color: white;
+  color: #FFF;
   border: none;
   padding: 12px;
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
-}
-
-.login-btn:disabled {
-  background-color: #666;
-  cursor: not-allowed;
 }
 
 .cancel-btn {
@@ -116,7 +107,6 @@
   margin: 0;
 }
 
-/* Passwort-Vergessen-Button */
 .forgot-password-btn {
   background: none;
   border: none;
@@ -129,14 +119,13 @@
 }
 
 /* Private Header styles */
-
 .couching-header.logged-in {
   position: fixed;
 }
 
 .logout-btn {
   background: transparent;
-  color: white;
+  color: #FFF;
   border: 1px solid #e50914;
   padding: 6px 12px;
   border-radius: 4px;
@@ -191,7 +180,7 @@
   align-items: center;
   justify-content: center;
 
-  /* Animation effect*/
+  /* Transition effect*/
   max-width: 0;
   opacity: 0;
   pointer-events: none;
@@ -341,7 +330,7 @@
 
 .MobileHeaderSET-Btn{
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: all;
 }
 
 /* If the menu is open transform button to X */

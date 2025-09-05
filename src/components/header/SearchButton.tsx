@@ -16,7 +16,7 @@ const startSearch = () => {
     router.push(`/search?query=${encodeURIComponent(query)}`); 
   }
 
-    return (
+return (
         <>
                     <div className={` ${showSearch? '' : 'mobile-search-disabled'}`}>
                         <button type='button' onClick={startSearch} className={`requestSender ${showSearch? 'ActiveSender' : ''}`}>Search</button>

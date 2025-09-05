@@ -12,14 +12,14 @@ import { useProfiles } from '@/context/ProfileContext';
 export default function PrivateHeader() {
 const { toggleMobilemenu, mobileActive } = useProfiles();
 
-  const handleLogout = () => signOut(auth);
+const handleLogout = () => signOut(auth);
 
-  const mobileMenuHandler = () => {
+const mobileMenuHandler = () => {
     toggleMobilemenu();
   }
 
 
-  return (
+return (
     <header className={`couching-header logged-in ${mobileActive? 'mobile-active' : 'mobile-deactive'}`}>
       <div className="logo">
         <a href='/'>COUCHING TV</a> 

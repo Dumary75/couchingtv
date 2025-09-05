@@ -55,7 +55,7 @@ export default function PublicHeader() {
     }
   };
 
-  return (
+return (
     <header className="couching-header">
       <div className="logo"><a href='/'>COUCHING TV</a></div>
 

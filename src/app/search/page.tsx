@@ -41,7 +41,7 @@ useEffect(() => {
 
 
   return (
-       <div className={`main-content ${isOpen ? 'BlurryMode' : ''} ${mobileActive ? 'BlurryMode' : ''}`}>
+       <div className={`main-content ${isOpen || mobileActive? 'BlurryMode' : ''}`}>
       {user? (
         <>
           <h2>Note: Only 6 results are displayed!</h2>

@@ -36,7 +36,7 @@ export default function PasswordPage() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Passwort eingeben"
+            placeholder="Enter password"
             required
             />
             <button type="submit">Continue</button>

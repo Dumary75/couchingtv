@@ -3,7 +3,8 @@ import FAQItem from './FAQItem';
 
 
 export default function FAQSection() {
-  return (
+
+return (
     <div className="faq-section">
       <h2 className="faq-title">Frequently Asked Questions</h2>
       <div className="faq-list">

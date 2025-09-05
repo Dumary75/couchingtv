@@ -1,8 +1,14 @@
 
-body, html {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: "Inter", Arial, sans-serif;
   height: 100%;
+  color: #f5f5f5;
 }
 
 body {
@@ -118,12 +124,6 @@ main {
   cursor: not-allowed;
 }
 
-.error {
-  color: #e50914;
-  font-size: 14px;
-  margin: 10px 0;
-}
-
 /* === Welcome-Site === */
 .welcome-page {
   text-align: center;
@@ -159,54 +159,6 @@ main {
   margin-bottom: 16px;
 }
 
-.subtitle {
-  font-size: 1.75rem;
-  color: #ddd;
-  margin-bottom: 16px;
-}
-
-.cta-text {
-  font-size: 1.2rem;
-  color: #ddd;
-  margin-bottom: 30px;
-}
-
-.email-input {
-  flex: 1;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #000;
-  font-weight: 400;
-  outline: none;
-}
-
-.email-input::placeholder {
-  color: #777;
-}
-
-.start-btn {
-  background-color: #e50914;
-  color: white;
-  border: none;
-  padding: 16px;
-  font-size: 18px;
-  font-weight: 700;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s;
-  white-space: nowrap;
-}
 
 
-/* HoverEffects for bigger screens */
-@media (min-width: 1280px) {
-
-.start-btn:hover {
-  background-color: #f40612;
-} 
-
-}
 

@@ -24,7 +24,7 @@ export default function Profil() {
     router.push('/profil');
   };
 
-  return (
+return (
     <div className="profile-dropdown">
       {activeProfile ? (
         <img

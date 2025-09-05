@@ -18,9 +18,6 @@ export default function Profil() {
   const [editingNameId, setEditingNameId] = useState<string | null>(null);
   const [draftName, setDraftName] = useState("");
 
-  
-
-
 
   if (!user) return <p>Please log in first</p>;
 
@@ -67,14 +64,15 @@ async function handleDelete(profileId: string) {
       );
       alert('Profile successfully deleted!')
     } catch (err) {
-      console.error("Deletion error::", err);
+      alert('Error deleting profile!');
+      console.error("Deletion error:", err);
     }
   }
 
 
 
   return (
-    <div className={`main-content ${isOpen ? 'BlurryMode' : ''} ${mobileActive ? 'BlurryMode' : ''}`}>
+    <div className={`main-content ${isOpen || mobileActive? 'BlurryMode' : ''}`}>
       <h1>Your profile area</h1>
 
       {profiles.map((profile) => (

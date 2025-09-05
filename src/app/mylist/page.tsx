@@ -10,7 +10,7 @@ export default function MyListPage() {
   const videos = activeProfile?.myList || [];
 
   return (
-    <div className={`main-content ${isOpen ? 'BlurryMode' : ''} ${mobileActive ? 'BlurryMode' : ''}`}>
+    <div className={`main-content ${isOpen || mobileActive ? 'BlurryMode' : ''}`}>
       <h1>My List</h1>
       {user? (
           <VideoListRendering

@@ -5,8 +5,8 @@ import { useProfiles } from '@/context/ProfileContext';
 export default function Footer() {
 const { isOpen, mobileActive } = useProfiles();
 
-  return (
-    <footer className={`couching-footer  ${isOpen ? 'BlurryMode' : ''} ${mobileActive ? 'BlurryMode' : ''}`}>
+return (
+    <footer className={`couching-footer  ${isOpen || mobileActive ? 'BlurryMode' : ''}`}>
       <div className="footer-links">
         <div className="footer-column">
           <a href="#">FAQ</a>

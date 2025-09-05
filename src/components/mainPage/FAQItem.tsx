@@ -15,7 +15,7 @@ export default function FAQItem({ question, children }: FAQItemProps) {
     setIsOpen(!isOpen);
   };
 
-  return (
+return (
     <div className="faq-item">
       <button
         className={`faq-question ${isOpen ? 'open' : ''}`}

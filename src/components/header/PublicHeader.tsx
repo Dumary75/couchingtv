@@ -1,6 +1,7 @@
 
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../../lib/firebase';
@@ -57,7 +58,7 @@ export default function PublicHeader() {
 
 return (
     <header className="couching-header">
-      <div className="logo"><a href='/'>COUCHING TV</a></div>
+      <div className="logo"><Link className='logoName' href='/'>COUCHING TV</Link></div>
 
         <form onSubmit={handleLogin} className={`login-form ${showLogin ? 'visible' : ''}`}>
           <input

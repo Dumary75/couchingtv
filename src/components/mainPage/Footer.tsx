@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useProfiles } from '@/context/ProfileContext';
 
 export default function Footer() {
@@ -9,27 +10,27 @@ return (
     <footer className={`couching-footer  ${isOpen || mobileActive ? 'BlurryMode' : ''}`}>
       <div className="footer-links">
         <div className="footer-column">
-          <a href="#">FAQ</a>
-          <a href="#">Investor Relations</a>
-          <a href="#">Privacy</a>
-          <a href="#">Speed Test</a>
+          <Link className='footer-Link-dummy' href="#">FAQ</Link>
+          <Link className='footer-Link-dummy' href="#">Investor Relations</Link>
+          <Link className='footer-Link-dummy' href="#">Privacy</Link>
+          <Link className='footer-Link-dummy' href="#">Speed Test</Link>
         </div>
         <div className="footer-column">
-          <a href="#">Help Center</a>
-          <a href="#">Jobs</a>
-          <a href="#">Cookie Preferences</a>
-          <a href="#">Legal Notices</a>
+          <Link className='footer-Link-dummy' href="#">Help Center</Link>
+          <Link className='footer-Link-dummy' href="#">Jobs</Link>
+          <Link className='footer-Link-dummy' href="#">Cookie Preferences</Link>
+          <Link className='footer-Link-dummy' href="#">Legal Notices</Link>
         </div>
         <div className="footer-column">
-          <a href="#">Account</a>
-          <a href="#">Ways to Watch</a>
-          <a href="#">Corporate Information</a>
-          <a href="#">Only on CouchingTV</a>
+          <Link className='footer-Link-dummy' href="#">Account</Link>
+          <Link className='footer-Link-dummy' href="#">Ways to Watch</Link>
+          <Link className='footer-Link-dummy' href="#">Corporate Information</Link>
+          <Link className='footer-Link-dummy' href="#">Only on CouchingTV</Link>
         </div>
         <div className="footer-column">
-          <a href="#">Media Center</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Contact Us</a>
+          <Link className='footer-Link-dummy' href="#">Media Center</Link>
+          <Link className='footer-Link-dummy' href="#">Terms of Use</Link>
+          <Link className='footer-Link-dummy' href="#">Contact Us</Link>
         </div>
       </div>
 

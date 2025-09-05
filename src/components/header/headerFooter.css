@@ -1,5 +1,5 @@
 
-.logo a {
+.logoName {
   color: #e50914;
   text-decoration: none;
   list-style: none;
@@ -226,7 +226,7 @@
   border-top: 1px solid #333;
 }
 
-.couching-footer a {
+.footer-Link-dummy {
   color: #757575;
   text-decoration: none;
   display: block;
@@ -500,7 +500,7 @@
   transform: scale(1.05);
 }
 
-.couching-footer a:hover {
+.footer-Link-dummy:hover {
   text-decoration: underline;
 }
 

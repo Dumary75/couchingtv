@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../lib/firebase';
 
@@ -22,7 +23,7 @@ const mobileMenuHandler = () => {
 return (
     <header className={`couching-header logged-in ${mobileActive? 'mobile-active' : 'mobile-deactive'}`}>
       <div className="logo">
-        <a href='/'>COUCHING TV</a> 
+        <Link href='/' className='logoName'>COUCHING TV</Link> 
             <div className='Mobile-Header_btns'>
               <button className={`MobileHeaderSET-Btn ${mobileActive? 'mobile-active' : ''}`} onClick={mobileMenuHandler} type='button'>
                   <span></span>
@@ -37,7 +38,7 @@ return (
 
       <nav className={`main-nav ${mobileActive? 'mobile-nav-active' : 'mobile-nav-deactive'}`}>
         <SearchButton />
-        <a href="/mylist" className="nav-link">My List</a>
+        <Link href="/mylist" className="nav-link">My List</Link>
         <Profil_inHeader />
         <button onClick={handleLogout} className="logout-btn" type='button'>Logout</button>
       </nav>

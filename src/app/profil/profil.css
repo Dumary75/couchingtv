@@ -32,14 +32,9 @@ h1{
 }
 
 /* ============ Name + Aktions ============ */
-.name-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  position: relative;
-}
 
 .name-actions {
+  align-items: center;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -186,6 +181,10 @@ button.secondary {
 }
 
 /* ============ Create Button ============ */
+.createProfil_Input {
+  text-align: center;
+}
+
 button[type="submit"] {
   display: inline-block;
   padding: 10px 20px;
@@ -238,5 +237,57 @@ button[type="submit"]:hover {
   background: linear-gradient(135deg, #4338ca, #2563eb);
 }
 
+}
+
+/* Mobileversion */
+@media (max-width: 767px) {
+
+.main-content {
+  margin-top: 13rem;
+}
+
+.name-actions {
+    flex-direction: column;   
+    align-items: center;      
+    gap: 0.7rem;                
+  }
+
+.name-text,
+.name-edit-field input {
+    width: 100%;              
+    text-align: center;       
+    font-size: 1.3rem;
+  }
+
+button {
+    width: 18rem;              
+    max-width: none;        
+    font-size: 1.3rem;
+  }
+
+.name-actions button.primary {
+    margin-top: 1rem; 
+  }
+
+.avatar{
+  transform: scale(1.2);
+}
+
+.dropdown{
+  gap: 2rem;
+}
+
+.avatar-option{
+  transform: scale(1.4);
+}
+
+.createProfil_Input{
+ transform: scale(1.2);
+ font-size: 1.1rem;
+}
+
+button[type="submit"]{
+  transform: scale(1.1);
+}
 
 }

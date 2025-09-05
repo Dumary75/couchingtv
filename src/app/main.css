@@ -150,27 +150,6 @@ body {
 
 /* === Responsive Querrys === */
 
-/* Mobileversion */
-@media (max-width: 767px) {
-
-.main-content {
-    max-width: none;       
-    margin: 0;             
-    width: 100%;
-}
-
-.main-content h1,
-.subtitle,
-.cta-text {
-  font-size: 1.7rem;
-}
-
-.email-form{
-  margin-top: 10rem;
-  width: 100%;
-}
-
-}
 /* HoverEffects for bigger screens */
 @media (min-width: 1280px) {
 
@@ -188,3 +167,37 @@ body {
 
 
 }
+
+
+/* Mobileversion */
+@media (max-width: 767px) {
+.main-content {
+      max-width: none;       
+      margin: 0;             
+      width: 100%;
+      padding: 0;
+      margin-top: 15rem;
+}
+
+.main-content h1,
+.subtitle,
+.cta-text {
+    font-size: 1.7rem;
+}
+
+.email-form{
+    margin-top: 10rem;
+    width: 100%;
+}
+
+ 
+.faq-section {
+    max-width: none;   
+    width: 100%;
+    margin: 15rem 0;    
+    padding: 0.1rem;
+}
+
+
+}
+

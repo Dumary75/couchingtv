@@ -42,7 +42,7 @@ const { user } = useProfiles();
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="name" placeholder="name" required style={{textAlign:'center'}}/> <br />
+      <input type="text" name="name" placeholder="Name" className="createProfil_Input" required/> <br />
       <button type="submit">Create Profil</button>
     </form>
   );

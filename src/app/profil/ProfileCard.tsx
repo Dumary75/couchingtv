@@ -47,26 +47,24 @@ export default function Profilcard({
 
     return (
                 <div key={profile.id} className="profile-card">
-                    <div className="name-container">
                     <div className="name-actions">
-                        
                         {/* Show name or Input-field */}
                         <div className="name-display-wrapper">
                         <span className={`name-text ${editingNameId === profile.id ? 'hidden' : 'visible'}`}>
                             Name: {profile.name}
                         </span>
-                        <div className={`name-edit-field ${editingNameId === profile.id ? 'visible' : 'hidden'}`}>
-                            <input
-                            type="text"
-                            value={draftName}
-                            onChange={(e) => setDraftName(e.target.value)}
-                            onKeyDown={(e) => {
-                                if (e.key === "Enter") saveName(profile.id);
-                                if (e.key === "Escape") cancelEditName();
-                            }}
-                            autoFocus={editingNameId === profile.id}
-                            />
-                        </div>
+                            <div className={`name-edit-field ${editingNameId === profile.id ? 'visible' : 'hidden'}`}>
+                                <input
+                                type="text"
+                                value={draftName}
+                                onChange={(e) => setDraftName(e.target.value)}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter") saveName(profile.id);
+                                    if (e.key === "Escape") cancelEditName();
+                                }}
+                                autoFocus={editingNameId === profile.id}
+                                />
+                            </div>
                         </div>
 
                         {/* Buttons: depending on State */}
@@ -81,7 +79,6 @@ export default function Profilcard({
                             <button type='button' className="danger" onClick={() => handleDelete(profile.id)}>Delete</button>
                         </>
                         )}
-                    </div>
                     </div>
 
                     {/* Avatar + Dropdown */}

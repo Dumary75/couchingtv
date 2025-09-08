@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
 
     const data = await response.json();
 
-    // Nur relevante Daten zurückgeben
+    // Return only necessary data
     const videos = data.items.map((item: YoutubeSearchItem) => ({
       id: item.id.videoId,
       title: item.snippet.title,
@@ -42,7 +42,10 @@ export async function GET(request: NextRequest) {
     }));
 
     return Response.json({ videos });
-  } catch (error) {
-    return Response.json({ error: 'Failed to fetch videos' }, { status: 500 });
+  } catch (error: unknown) {
+  if (error instanceof Error) {
+    return Response.json({ error: error.message }, { status: 500 });
   }
+  return Response.json({ error: 'Failed to fetch videos' }, { status: 500 });
+}
 }

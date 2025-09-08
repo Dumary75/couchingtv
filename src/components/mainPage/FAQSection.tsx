@@ -23,14 +23,15 @@ return (
 
         <FAQItem question="Where can i watch?">
           <p>
-            You can watch CouchingTV on any device with internet access. Whether you're on your computer, tablet, or smartphone,
+            You can watch CouchingTV on any device with internet access. 
+            Whether you&apos;re on your computer, tablet, or smartphone, 
             you can enjoy your favorite videos anytime, anywhere.
           </p>
         </FAQItem>
 
         <FAQItem question="How do i cancel my subscription?">
           <p>
-            CouchingTV does not require a subscription, so there is no cancellation needed. You can use the service as long as you like,
+            CouchingTV doesn&apos;t require a subscription, so there is no cancellation needed.You can use the service as long as you like,
             and stop using it whenever you choose.
           </p>
         </FAQItem>

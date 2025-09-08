@@ -15,7 +15,7 @@ export default function RemoveFromMyListButton({ video, activeProfileId }: Props
 
   const handleRemove = async () => {
 
-    const profileRef = doc(database, "users", user.uid, "profiles", activeProfileId);
+    const profileRef = doc(database, "users", user!.uid, "profiles", activeProfileId);
 
     try {
       await updateDoc(profileRef, {

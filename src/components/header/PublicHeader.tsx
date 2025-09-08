@@ -25,10 +25,14 @@ export default function PublicHeader() {
   }
   try {
     await sendPasswordResetEmail(auth, email);
-    alert('Password reset email sent!!');
-  } catch (error) {
+    alert('Password reset email sent!');
+  } catch (error: unknown) {
+    if(error instanceof Error){
     console.error('Error sending email:', error);
-    alert('Error: ' + (error as any).message);
+    alert('Error: ' + error.message);
+    } else {
+      alert('Error is undefinded, but is somehting with Error sending email!')
+    }
   }
 };
 
@@ -49,8 +53,12 @@ export default function PublicHeader() {
     setIsLoading(true);
     try {
       await signInWithEmailAndPassword(auth, email, password);
-    } catch (err: any) {
-      setError(err.message || 'Error while signing in.');
+    } catch (err: unknown) {
+      if(err instanceof Error){
+      setError(err.message);
+      } else {
+        setError('Error while signing in.')
+      }
     } finally {
       setIsLoading(false);
     }

@@ -40,12 +40,14 @@ export default function ProfilePage() {
 
       // 4. Continue to the welcome page
       router.push('/signup/welcome');
-    } catch (err: any) {
-      setError(err.message || 'Error by creating account');
-    } finally {
-      setLoading(false);
-    }
-  };
+    } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('Error by creating account');
+        }
+    };
+};
 
   return (
     <div className="profile-page">

@@ -22,11 +22,5 @@
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
     "typescript": "^5"
-  },
-  "eslintConfig": {
-    "extends": "next/core-web-vitals",
-    "rules": {
-      "@typescript-eslint/no-explicit-any": "off"
   }
-}
 }

@@ -1,6 +1,21 @@
 
 import { NextRequest } from 'next/server';
 
+interface YoutubeSearchItem {
+  id: {
+    videoId: string;
+  };
+  snippet: {
+    title: string;
+    thumbnails: {
+      medium: {
+        url: string;
+      };
+    };
+  };
+}
+
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const query = searchParams.get('searchitem') || 'trending';
@@ -20,7 +35,7 @@ export async function GET(request: NextRequest) {
     const data = await response.json();
 
     // Nur relevante Daten zurückgeben
-    const videos = data.items.map((item: any) => ({
+    const videos = data.items.map((item: YoutubeSearchItem) => ({
       id: item.id.videoId,
       title: item.snippet.title,
       thumbnail: item.snippet.thumbnails.medium.url,

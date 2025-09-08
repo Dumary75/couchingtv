@@ -31,7 +31,7 @@ export default function Profil() {
   // Name-Editing Functions
   const startEditName = (p: Profile) => {
     setEditingNameId(p.id);
-    setDraftName(p.name || "");
+    setDraftName(p.name ?? ""); 
   };
 
   const cancelEditName = () => {

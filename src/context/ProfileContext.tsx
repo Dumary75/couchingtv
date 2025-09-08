@@ -15,7 +15,7 @@ type ProfileContextType = {
   profiles: Profile[];
   activeProfile: Profile | null;
   setActiveProfile: (p: Profile | null) => void;
-  user: AuthUser;
+  user: AuthUser | null;
 
   /* Things for MobileDropdown */
   isOpen: boolean;

@@ -7,11 +7,15 @@ import { useAuth } from "@/hooks/useAuth";
 import { Profile } from '@/types/interface';
 import './loading.css';
 
+interface AuthUser{
+ uid: string;
+};
+
 type ProfileContextType = {
   profiles: Profile[];
   activeProfile: Profile | null;
   setActiveProfile: (p: Profile | null) => void;
-  user: unknown;
+  user: AuthUser;
 
   /* Things for MobileDropdown */
   isOpen: boolean;

@@ -51,7 +51,7 @@ useEffect(() => {
             />
         </>
 
-      ): (<h2>Please log in to use this feature!</h2>)}
+      ): (<h2 className='searchH2'>Please log in to use this feature!</h2>)}
         </div>
   );
 }

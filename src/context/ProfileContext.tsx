@@ -48,14 +48,14 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!user?.uid) return; 
 
-    const profilesRef = collection(database, "users", user.uid, "profiles");
+    const profilesRef = collection(database, "users", user!.uid, "profiles");
     const unsub = onSnapshot(profilesRef, async (snapshot) => {
       const profileData = snapshot.docs.map(
         (d) => ({ id: d.id, ...(d.data() as Omit<Profile, "id">) }) as Profile
       );
       setProfiles(profileData);
 
-      const userRef = doc(database, "users", user.uid);
+      const userRef = doc(database, "users", user!.uid);
       const userSnap = await getDoc(userRef);
       if (userSnap.exists()) {
         const activeProfileId = userSnap.data().activeProfileId as string;

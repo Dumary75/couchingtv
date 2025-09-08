@@ -27,7 +27,7 @@ const { user } = useProfiles();
       );
 
       await addDoc(profilesRef, {
-        uid: auth.currentUser.uid,
+        uid: auth.currentuser!.uid,
         name,
         avatarUrl: './avatars/avatar1.png',
         myList: []

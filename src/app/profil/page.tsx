@@ -19,11 +19,11 @@ export default function Profil() {
   const [draftName, setDraftName] = useState("");
 
 
-  if (!user) return <p>Please log in first</p>;
+  if (!user) return <div className="main-content"><p>Please log in first</p></div>;
 
   // Save Avatar
   const saveAvatar = async (avatar: string, profileId: string) => {
-    const profileRef = doc(database, "users", user.uid, "profiles", profileId);
+    const profileRef = doc(database, "users", user!.uid, "profiles", profileId);
     await updateDoc(profileRef, { avatarUrl: avatar });
   };
 
@@ -42,7 +42,7 @@ export default function Profil() {
   const saveName = async (profileId: string) => {
     const name = draftName.trim();
     if (!name) return;
-    const profileRef = doc(database, "users", user.uid, "profiles", profileId);
+    const profileRef = doc(database, "users", user!.uid, "profiles", profileId);
     await updateDoc(profileRef, { name });
     setEditingNameId(null);
   };
@@ -60,7 +60,7 @@ async function handleDelete(profileId: string) {
 
     try {
       await deleteDoc(
-        doc(database, "users", auth.currentUser.uid, "profiles", profileId)
+        doc(database, "users", auth.currentUser!.uid, "profiles", profileId)
       );
       alert('Profile successfully deleted!')
     } catch (err) {

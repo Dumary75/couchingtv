@@ -15,7 +15,7 @@ export default function Profil() {
     toggleOpen();
 
     // Save in User-document
-    const userRef = doc(database, "users", user.uid);
+    const userRef = doc(database, "users", user!.uid);
     await updateDoc(userRef, { activeProfileId: profile.id });
   };
 

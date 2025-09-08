@@ -20,7 +20,7 @@ export default function AddToMyListButton({ video, activeProfileId, myList }: Pr
     const exists = myList.some(v => v.id === video.id);
     if (exists) return alert("Video is already in your MyList!");
 
-    const profileRef = doc(database, "users", user.uid, "profiles", activeProfileId);
+    const profileRef = doc(database, "users", user!.uid, "profiles", activeProfileId);
     const videoToAdd = {
       ...video,
       addedAt: new Date().toISOString(),

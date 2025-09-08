@@ -70,13 +70,7 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
     );
   }
 
-  if (!user) {
-    return (
-      <div className="main-content">
-        <h2>No user logged in.</h2>
-      </div>
-    );
-  }
+
 
   return (
     <ProfileContext.Provider
